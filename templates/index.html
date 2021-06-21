@@ -1,0 +1,22 @@
+{% include 'header.html' %}
+
+<h1 class="text-center">Image Filter</h1>
+
+<form action="/image-upload" method="POST" enctype="multipart/form-data">
+    <input name="image" type="file">
+    <button type="submit">Submit</button>
+</form>
+{% if img_data: %}
+<h1>Image uploaded</h1>
+<div class="image row">
+    <div class="col-6">
+        <img src="data:image/jpg;base64, {{img_data}}"  alt=""/>
+    </div>
+    <div class="col-6">
+        <img src="data:image/jpg;base64, {{filter_img_data}}"  alt=""/>
+    </div>
+</div>
+
+{% endif %}
+
+{% include 'footer.html' %}
