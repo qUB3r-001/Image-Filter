@@ -1,5 +1,17 @@
-
 img{
     height: 500px;
     width: 500px;
+}
+
+.img-block{
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+}
+
+.filter-coefs{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 5px;
 }

@@ -1,22 +1,54 @@
 {% include 'header.html' %}
 
-<h1 class="text-center">Image Filter</h1>
+<h1 class="text-center p-4 mb-0">Image Filter</h1>
 
-<form action="/image-upload" method="POST" enctype="multipart/form-data">
-    <input name="image" type="file">
-    <button type="submit">Submit</button>
-</form>
-{% if img_data: %}
-<h1>Image uploaded</h1>
-<div class="image row">
-    <div class="col-6">
-        <img src="data:image/jpg;base64, {{img_data}}"  alt=""/>
-    </div>
-    <div class="col-6">
-        <img src="data:image/jpg;base64, {{filter_img_data}}"  alt=""/>
+
+<div class="container-fluid">
+    <div class="image row p-4 text-center">
+
+
+        <div class="col-5">
+
+            {% if img_data: %}
+            <img src="data:image/jpg;base64, {{img_data}}" alt=""/>
+            {% else: %}
+            <img alt="" id="show_img"/>
+            {% endif %}
+
+        </div>
+
+
+        <div class="col-2">
+
+            <form action="/" method="POST" enctype="multipart/form-data" class="text-center p-2" id="filter_form">
+                <input name="image" type="file" class="form-control my-2" id="img_file" required>
+                <div class="filter-coefs">
+                    <input name="filter1" type="text" class="form-control my-2" autocomplete="off">
+                    <input name="filter2" type="text" class="form-control my-2" autocomplete="off">
+                    <input name="filter3" type="text" class="form-control my-2" autocomplete="off">
+                    <input name="filter4" type="text" class="form-control my-2" autocomplete="off">
+                    <input name="filter5" type="text" class="form-control my-2" autocomplete="off">
+                    <input name="filter6" type="text" class="form-control my-2" autocomplete="off">
+                    <input name="filter7" type="text" class="form-control my-2" autocomplete="off">
+                    <input name="filter8" type="text" class="form-control my-2" autocomplete="off">
+                    <input name="filter9" type="text" class="form-control my-2" autocomplete="off">
+                </div>
+                <button type="submit" class="btn btn-primary" id="submit_form">Submit</button>
+            </form>
+        </div>
+
+
+        <div class="col-5">
+            {% if filter_img_data %}
+            <img src="data:image/jpg;base64, {{filter_img_data}}" alt=""/>
+            {% else %}
+            <div class="img-block mx-auto"></div>
+            {% endif %}
+        </div>
+
+
     </div>
 </div>
 
-{% endif %}
 
 {% include 'footer.html' %}
