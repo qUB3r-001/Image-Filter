@@ -1,17 +1,145 @@
-img{
-    height: 500px;
-    width: 500px;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.img-block{
-    height: 500px;
-    width: 500px;
-    border: 1px solid black;
+body{
+    background-color: #ffffff;
 }
+
+h1{
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 1rem;
+}
+
+#img-title{
+     font-size: 5em;
+     color: #ffffff;
+     -webkit-text-stroke: 4px black;
+}
+
+#img-title::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color:
+
+}
+
+#filter-title{
+     color: black;
+     font-size: 5em;
+}
+
+@keyframes anim{
+    from{
+
+    }
+    to{
+
+    }
+}
+
+img{
+    width: 400px !important;
+    aspect-ratio: 1;
+}
+
+#show_img{
+    display: none;
+}
+
+#result-div{
+    display: none;
+}
+
+.img-loader{
+    width: 400px;
+    aspect-ratio: 1;
+    border: 1px solid #C0C0C0;
+    display: grid;
+    place-items: center;
+}
+
+.loading-square{
+    display: none;
+    width: 10%;
+    aspect-ratio: 1;
+    background-color: #4C4C4C;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate{
+    0%{
+        transform: rotateZ(0) scale(1);
+    }
+    50%{
+        transform: rotateZ(180deg) scale(1.5);
+    }
+    100%{
+        transform: rotateZ(360deg) scale(1);
+    }
+}
+
+.upload-div{
+    width: 400px;
+}
+
+#img_file{
+
+}
+
 
 .filter-coefs{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-column-gap: 5px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.filter-coefs input{
+    width: 2.5vw;
+    aspect-ratio: 1;
+    padding: 0;
+    text-align: center;
+}
+
+button{
+    font-family: 'Signika Negative', sans-serif;
+}
+
+.myCarousel{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.swiper-container {
+        width: 400px;
+        height: 400px;
+      }
+
+      .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        display: grid;
+        place-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+      }
+
+@media screen and (max-width: 768px){
+    img, .img-loader, .upload-div{
+        width: 250px;
+        aspect-ratio: 1;
+    }
+
+    .swiper-container {
+        width: 300px;
+        height: 300px;
+      }
 }

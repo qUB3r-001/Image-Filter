@@ -1,54 +1,143 @@
 {% include 'header.html' %}
 
-<h1 class="text-center p-4 mb-0">Image Filter</h1>
+<h1 class="text-center p-4 mb-0"><span id="img-title">IMAGE</span><span id="filter-title">FILTER</span></h1>
 
 
-<div class="container-fluid">
-    <div class="image row p-4 text-center">
-
-
-        <div class="col-5">
-
-            {% if img_data: %}
-            <img src="data:image/jpg;base64, {{img_data}}" alt=""/>
-            {% else: %}
-            <img alt="" id="show_img"/>
-            {% endif %}
-
+<div class="container">
+    <div class="swiper-container myCarousel">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div>
+                {% if img_data: %}
+                <img src="data:image/jpg;base64, {{img_data}}" alt=""/>
+                {% else: %}
+                <img alt="" id="show_img"/>
+                {% endif %}
+            </div>
         </div>
+        <div class="swiper-slide">
+            <div class="upload-div align-self-center">
+                <form action="/" method="POST" enctype="multipart/form-data" class="text-center"
+                      id="filter_form">
+                    <input name="image" type="file" class="form-control" id="img_file" required>
+                    <div class="filter-coefs">
+                        {% for i in range(25):%}
+                        <input name="filter{{i}}" type="text" class="form-control" autocomplete="off">
+                        {% endfor %}
+                    </div>
+                        <button type="submit" class="btn btn-dark" id="submit_form">Convert</button>
+                </form>
 
-
-        <div class="col-2">
-
-            <form action="/" method="POST" enctype="multipart/form-data" class="text-center p-2" id="filter_form">
-                <input name="image" type="file" class="form-control my-2" id="img_file" required>
-                <div class="filter-coefs">
-                    <input name="filter1" type="text" class="form-control my-2" autocomplete="off">
-                    <input name="filter2" type="text" class="form-control my-2" autocomplete="off">
-                    <input name="filter3" type="text" class="form-control my-2" autocomplete="off">
-                    <input name="filter4" type="text" class="form-control my-2" autocomplete="off">
-                    <input name="filter5" type="text" class="form-control my-2" autocomplete="off">
-                    <input name="filter6" type="text" class="form-control my-2" autocomplete="off">
-                    <input name="filter7" type="text" class="form-control my-2" autocomplete="off">
-                    <input name="filter8" type="text" class="form-control my-2" autocomplete="off">
-                    <input name="filter9" type="text" class="form-control my-2" autocomplete="off">
-                </div>
-                <button type="submit" class="btn btn-primary" id="submit_form">Submit</button>
-            </form>
+                <form action="/" method="GET" class="text-center">
+                    <button type="submit" class="btn btn-dark">Refresh</button>
+                </form>
+            </div>
         </div>
+        <div class="swiper-slide">
+            <div>
+                {% if filter_img_data %}
+                    <img src="data:image/jpg;base64, {{filter_img_data}}" alt=""/>
+                {% else %}
+                    <div class="img-loader mx-auto" >
+                        <div class="loading-square" >
 
-
-        <div class="col-5">
-            {% if filter_img_data %}
-            <img src="data:image/jpg;base64, {{filter_img_data}}" alt=""/>
-            {% else %}
-            <div class="img-block mx-auto"></div>
-            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
         </div>
-
-
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
+
+<div class="row py-5">
+    <div class="col-12 py-5">
+        <div class="swiper-container mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4NjAzNTM2MTQ4MTkx/hith-eiffel-tower-istock_000016468972large-2.jpg" />
+        </div>
+        <div class="swiper-slide bg-light">
+            <h5 class="text-center p-1">Standard Blur</h5>
+            <p class="text-center px-4">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    </div>
+    <div class="col-12 py-5">
+        <div class="swiper-container mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4NjAzNTM2MTQ4MTkx/hith-eiffel-tower-istock_000016468972large-2.jpg" />
+        </div>
+        <div class="swiper-slide bg-light">
+            <h5 class="text-center p-1">Standard Blur</h5>
+            <p class="text-center px-4">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    </div>
+    <div class="col-12 py-5">
+            <div class="swiper-container mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4NjAzNTM2MTQ4MTkx/hith-eiffel-tower-istock_000016468972large-2.jpg" />
+            </div>
+            <div class="swiper-slide bg-light">
+                <h5 class="text-center p-1">Standard Blur</h5>
+                <p class="text-center px-4">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        </div>
+    <div class="col-12 py-5">
+            <div class="swiper-container mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4NjAzNTM2MTQ4MTkx/hith-eiffel-tower-istock_000016468972large-2.jpg" />
+            </div>
+            <div class="swiper-slide bg-light">
+                <h5 class="text-center p-1">Standard Blur</h5>
+                <p class="text-center px-4">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        </div>
+    <div class="col-12 py-5">
+            <div class="swiper-container mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4NjAzNTM2MTQ4MTkx/hith-eiffel-tower-istock_000016468972large-2.jpg" />
+            </div>
+            <div class="swiper-slide bg-light">
+                <h5 class="text-center p-1">Standard Blur</h5>
+                <p class="text-center px-4">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                </p>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        </div>
 </div>
+
+</div>
+
+
+
 
 
 {% include 'footer.html' %}
