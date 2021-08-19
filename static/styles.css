@@ -10,11 +10,10 @@ body{
 
 h1{
     font-family: 'Libre Franklin', sans-serif;
-    font-size: 1rem;
+    font-size: 7em;
 }
 
 #img-title{
-     font-size: 5em;
      color: #ffffff;
      -webkit-text-stroke: 4px black;
 }
@@ -29,7 +28,6 @@ h1{
 
 #filter-title{
      color: black;
-     font-size: 5em;
 }
 
 @keyframes anim{
@@ -93,9 +91,9 @@ img{
 
 .filter-coefs{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-column-gap: 10px;
+    grid-column-gap: 5px;
     grid-row-gap: 10px;
 }
 
@@ -134,7 +132,7 @@ button{
 
 @media screen and (max-width: 768px){
     img, .img-loader, .upload-div{
-        width: 250px;
+        width: 300px !important;
         aspect-ratio: 1;
     }
 
@@ -142,4 +140,9 @@ button{
         width: 300px;
         height: 300px;
       }
+
+      h1{
+        font-family: 'Libre Franklin', sans-serif;
+        font-size: 3.5em;
+    }
 }

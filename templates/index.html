@@ -4,33 +4,40 @@
 
 
 <div class="container">
-    <div class="swiper-container myCarousel">
+    <form action="/filtered" method="POST" enctype="multipart/form-data" class="text-center"
+                      id="filter_form">
+    <div class="swiper-container myCarousel py-4">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
+        <div class="swiper-slide bg-primary">
             <div>
                 {% if img_data: %}
                 <img src="data:image/jpg;base64, {{img_data}}" alt=""/>
                 {% else: %}
+                <input name="image" type="file" class="form-control" id="img_file" required>
                 <img alt="" id="show_img"/>
                 {% endif %}
             </div>
         </div>
-        <div class="swiper-slide">
+        <div class="swiper-slide bg-primary">
             <div class="upload-div align-self-center">
-                <form action="/" method="POST" enctype="multipart/form-data" class="text-center"
-                      id="filter_form">
-                    <input name="image" type="file" class="form-control" id="img_file" required>
+
+
                     <div class="filter-coefs">
-                        {% for i in range(25):%}
-                        <input name="filter{{i}}" type="text" class="form-control" autocomplete="off">
+<!--                        {% for i in range(25):%}-->
+<!--                        <input name="filter{{i}}" type="text" class="form-control" autocomplete="off">-->
+<!--                        {% endfor %}-->
+                        {% for i in range(9): %}
+                        <input name="Rfilter{{i}}" type="text" class="form-control" autocomplete="off" value=1>
+                        {% endfor %}
+                        {% for i in range(9): %}
+                        <input name="Gfilter{{i}}" type="text" class="form-control" autocomplete="off" value=1>
+                        {% endfor %}
+                        {% for i in range(9): %}
+                        <input name="Bfilter{{i}}" type="text" class="form-control" autocomplete="off" value=0>
                         {% endfor %}
                     </div>
                         <button type="submit" class="btn btn-dark" id="submit_form">Convert</button>
-                </form>
 
-                <form action="/" method="GET" class="text-center">
-                    <button type="submit" class="btn btn-dark">Refresh</button>
-                </form>
             </div>
         </div>
         <div class="swiper-slide">
@@ -47,9 +54,11 @@
             </div>
         </div>
       </div>
+
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
+        </form>
 
 <div class="row py-5">
     <div class="col-12 py-5">
