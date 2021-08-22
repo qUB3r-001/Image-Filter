@@ -89,7 +89,24 @@ img{
 }
 
 
-.filter-coefs{
+.single-channel{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.single-channel input{
+    display: block;
+    width: 2.5vw;
+    aspect-ratio: 1;
+    padding: 0;
+    text-align: center;
+}
+
+
+.rgb-channel{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
@@ -97,7 +114,7 @@ img{
     grid-row-gap: 10px;
 }
 
-.filter-coefs input{
+.rgb-channel input{
     width: 2.5vw;
     aspect-ratio: 1;
     padding: 0;
