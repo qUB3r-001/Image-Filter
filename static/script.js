@@ -29,6 +29,7 @@ $(function(){
           prevEl: ".swiper-button-prev",
         },
         initialSlide: startingSlide,
+        simulateTouch: false,
       });
 
 

@@ -6,6 +6,8 @@
 
 body{
     background-color: #ffffff;
+    background-image: url("https://www.transparenttextures.com/patterns/transparent-square-tiles.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 h1{
@@ -41,7 +43,6 @@ h1{
 
 img{
     width: 400px !important;
-    aspect-ratio: 1;
 }
 
 #show_img{
@@ -80,42 +81,36 @@ img{
     }
 }
 
-.upload-div{
-    width: 400px;
-}
 
 #img_file{
 
 }
 
-
 .single-channel{
+    width: 300px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
 }
 
 .single-channel input{
-    display: block;
-    width: 2.5vw;
     aspect-ratio: 1;
     padding: 0;
     text-align: center;
 }
 
-
 .rgb-channel{
+    width: 360px;
+}
+
+.one-channel{
+    width: 120px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-column-gap: 5px;
-    grid-row-gap: 10px;
 }
 
 .rgb-channel input{
-    width: 2.5vw;
     aspect-ratio: 1;
     padding: 0;
     text-align: center;
@@ -125,29 +120,28 @@ button{
     font-family: 'Signika Negative', sans-serif;
 }
 
-.myCarousel{
-    width: 100% !important;
-    height: 100% !important;
-}
-
 .swiper-container {
         width: 400px;
         height: 400px;
-      }
+  }
 
-      .swiper-slide {
-        background-position: center;
-        background-size: cover;
-        display: grid;
-        place-items: center;
-      }
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+  }
 
-      .swiper-slide img {
-        display: block;
-        width: 100%;
-      }
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
 
 @media screen and (max-width: 768px){
+    #img-title, #filter-title{
+        display: block;
+        padding: 0 0;
+    },
     img, .img-loader, .upload-div{
         width: 300px !important;
         aspect-ratio: 1;
@@ -160,6 +154,6 @@ button{
 
       h1{
         font-family: 'Libre Franklin', sans-serif;
-        font-size: 3.5em;
+        font-size: 5em;
     }
 }
