@@ -88,9 +88,6 @@ img{
 
 .single-channel{
     width: 300px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
 }
 
 .single-channel input{
@@ -100,7 +97,7 @@ img{
 }
 
 .rgb-channel{
-    width: 360px;
+    width: 300px;
 }
 
 .one-channel{

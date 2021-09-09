@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="Added the image preview (tried on ajax-&gt;flask, ajax-&gt;preview, ajax)">
+    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="Added image size limit (redirect left), changed resizing">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
@@ -127,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629340637129</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added image size limit (redirect left), changed resizing">
+      <created>1631050364326</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1631050364326</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -168,6 +175,7 @@
     <MESSAGE value="Third commit (workspace.xml)" />
     <MESSAGE value="Added the image preview (tried on ajax-&gt;flask, ajax-&gt;preview, ajax)" />
     <MESSAGE value="Added 3 channel RGB 3x3 filter for image" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added 3 channel RGB 3x3 filter for image" />
+    <MESSAGE value="Added image size limit (redirect left), changed resizing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added image size limit (redirect left), changed resizing" />
   </component>
 </project>

@@ -45,22 +45,22 @@ def image_upload():
         blue_arr = np.array(blue)
         if coef_dict['inlineRadioOptions'] == 'single':
             filter_matrix = filter_matrix[1:]
-            filter_matrix = np.array(filter_matrix, dtype=np.int8)
-            filter_matrix = filter_matrix.reshape((5, 5))
-            new_width_range = int(resized_width / 5)
-            new_height_range = int(resized_height / 5)
+            filter_matrix = np.array(filter_matrix, dtype=np.float16)
+            filter_matrix = filter_matrix.reshape((3, 3))
+            new_width_range = resized_width - 3
+            new_height_range = resized_height - 3
             blur_g = np.array(
-                [[min(max(np.sum(filter_matrix * grn_arr[5 * i:5 * i + 5, 5 * j:5 * j + 5]), 0), 255) for j in range(new_width_range)]
+                [[min(max(round(np.sum(filter_matrix * grn_arr[i:i + 3, j:j + 3])), 0), 255) for j in range(new_width_range)]
                  for i in range(new_height_range)], dtype=np.int8)
             out_green = Image.fromarray(blur_g, 'L')
 
             blur_r = np.array(
-                [[min(max(np.sum(filter_matrix * red_arr[5 * i:5 * i + 5, 5 * j:5 * j + 5]), 0), 255) for j in range(new_width_range)]
+                [[min(max(round(np.sum(filter_matrix * red_arr[i:i + 3, j:j + 3])), 0), 255) for j in range(new_width_range)]
                  for i in range(new_height_range)], dtype=np.int8)
             out_red = Image.fromarray(blur_r, 'L')
 
             blur_b = np.array(
-                [[min(max(np.sum(filter_matrix * blue_arr[5 * i:5 * i + 5, 5 * j:5 * j + 5]), 0), 255) for j in range(new_width_range)]
+                [[min(max(round(np.sum(filter_matrix * blue_arr[i:i + 3, j:j + 3])), 0), 255) for j in range(new_width_range)]
                  for i in range(new_height_range)], dtype=np.int8)
             out_blue = Image.fromarray(blur_b, 'L')
         else:
@@ -68,30 +68,30 @@ def image_upload():
             filter_matrix_g = []
             filter_matrix_b = []
             filter_matrix_r = filter_matrix[1:10]
-            filter_matrix_r = np.array(filter_matrix_r, dtype=np.int8)
+            filter_matrix_r = np.array(filter_matrix_r, dtype=np.float16)
             filter_matrix_r = filter_matrix_r.reshape((3, 3))
             filter_matrix_g = filter_matrix[10:19]
-            filter_matrix_g = np.array(filter_matrix_g, dtype=np.int8)
+            filter_matrix_g = np.array(filter_matrix_g, dtype=np.float16)
             filter_matrix_g = filter_matrix_g.reshape((3, 3))
             filter_matrix_b = filter_matrix[19:]
-            filter_matrix_b = np.array(filter_matrix_b, dtype=np.int8)
+            filter_matrix_b = np.array(filter_matrix_b, dtype=np.float16)
             filter_matrix_b = filter_matrix_b.reshape((3, 3))
 
-            new_width_range = int(resized_width / 3)
-            new_height_range = int(resized_height / 3)
+            new_width_range = resized_width - 3
+            new_height_range = resized_height - 3
 
             blur_g = np.array(
-                [[min(max(np.sum(filter_matrix_g * grn_arr[3 * i:3 * i + 3, 3 * j:3 * j + 3])/9, 0), 255) for j in range(new_width_range)]
+                [[min(max(round(np.sum(filter_matrix_g * grn_arr[i:i + 3, j:j + 3])), 0), 255) for j in range(new_width_range)]
                  for i in range(new_height_range)], dtype=np.int8)
             out_green = Image.fromarray(blur_g, 'L')
 
             blur_r = np.array(
-                [[min(max(np.sum(filter_matrix_r * red_arr[3 * i:3 * i + 3, 3 * j:3 * j + 3])/9, 0), 255) for j in range(new_width_range)]
+                [[min(max(round(np.sum(filter_matrix_r * red_arr[i:i + 3, j:j + 3])), 0), 255) for j in range(new_width_range)]
                  for i in range(new_height_range)], dtype=np.int8)
             out_red = Image.fromarray(blur_r, 'L')
 
             blur_b = np.array(
-                [[min(max(np.sum(filter_matrix_b * blue_arr[3 * i:3 * i + 3, 3 * j:3 * j + 3])/9, 0), 255) for j in range(new_width_range)]
+                [[min(max(round(np.sum(filter_matrix_b * blue_arr[i:i + 3, j:j + 3])), 0), 255) for j in range(new_width_range)]
                  for i in range(new_height_range)], dtype=np.int8)
             out_blue = Image.fromarray(blur_b, 'L')
         output = np.dstack((out_red, out_green, out_blue))
