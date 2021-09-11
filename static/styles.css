@@ -153,4 +153,8 @@ button{
         font-family: 'Libre Franklin', sans-serif;
         font-size: 5em;
     }
+
+    .swiper-slide img{
+        width: 300px !important;
+    }
 }

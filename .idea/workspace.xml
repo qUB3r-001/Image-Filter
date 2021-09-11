@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="Added image size limit (redirect left), changed resizing">
+    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="reduced stride for kernel matrix to 1 (from 3/5), added floating value as matrix inputs (transformation too slow)">
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/image-filter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/image-filter.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Setup Script" />
       </list>
     </option>
   </component>
@@ -48,8 +50,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="kite.configurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="image-filter" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="image-filter" />
+      </console-settings>
+    </option>
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -134,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631050364326</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="reduced stride for kernel matrix to 1 (from 3/5), added floating value as matrix inputs (transformation too slow)">
+      <created>1631222669766</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1631222669766</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -176,6 +193,7 @@
     <MESSAGE value="Added the image preview (tried on ajax-&gt;flask, ajax-&gt;preview, ajax)" />
     <MESSAGE value="Added 3 channel RGB 3x3 filter for image" />
     <MESSAGE value="Added image size limit (redirect left), changed resizing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added image size limit (redirect left), changed resizing" />
+    <MESSAGE value="reduced stride for kernel matrix to 1 (from 3/5), added floating value as matrix inputs (transformation too slow)" />
+    <option name="LAST_COMMIT_MESSAGE" value="reduced stride for kernel matrix to 1 (from 3/5), added floating value as matrix inputs (transformation too slow)" />
   </component>
 </project>
