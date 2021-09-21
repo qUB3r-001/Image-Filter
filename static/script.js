@@ -1,5 +1,7 @@
 $(function(){
 
+
+
       var startingSlide = 0;
 
       $(".rgb-channel").hide();
@@ -37,6 +39,7 @@ $(function(){
     $("#img_file").change(function(){
         preview(this);
         $("#show_img").show();
+        //$("#img_file").hide();
     });
 
     $("#filter_form").submit(function(){
@@ -44,6 +47,8 @@ $(function(){
         $("#result-div").show();
         swiper1.slideNext();
     });
+
+
 
 });
 

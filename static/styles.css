@@ -6,7 +6,7 @@
 
 body{
     background-color: #ffffff;
-    background-image: url("https://www.transparenttextures.com/patterns/transparent-square-tiles.png");
+    background-image: url("https://www.transparenttextures.com/patterns/gradient-squares.png");
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
@@ -16,7 +16,7 @@ h1{
 }
 
 #img-title{
-     color: #ffffff;
+     color: #FFFFFF;
      -webkit-text-stroke: 4px black;
 }
 
@@ -32,17 +32,18 @@ h1{
      color: black;
 }
 
-@keyframes anim{
-    from{
-
-    }
-    to{
-
-    }
-}
 
 img{
     width: 400px !important;
+}
+
+
+.mySwiper img{
+    width: 400px !important;
+}
+
+.myCarousel .swiper-wrapper .swiper-slide{
+    height: auto;
 }
 
 #show_img{
@@ -54,7 +55,7 @@ img{
 }
 
 .img-loader{
-    width: 400px;
+    width: 350px;
     aspect-ratio: 1;
     border: 1px solid #C0C0C0;
     display: grid;
@@ -86,8 +87,9 @@ img{
 
 }
 
+
 .single-channel{
-    width: 300px;
+    width: 100%;
 }
 
 .single-channel input{
@@ -97,7 +99,16 @@ img{
 }
 
 .rgb-channel{
+    width: 100%;
+}
+
+.combined-channel{
     width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-gap: 6px;
+    grid-row-gap: 6px;
 }
 
 .one-channel{
@@ -105,6 +116,8 @@ img{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
+    grid-column-gap: 6px;
+    grid-row-gap: 6px;
 }
 
 .rgb-channel input{
@@ -113,28 +126,40 @@ img{
     text-align: center;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 button{
     font-family: 'Signika Negative', sans-serif;
 }
 
-.swiper-container {
+ .mySwiper {
         width: 400px;
         height: 400px;
   }
 
-  .swiper-slide {
+  .mySwiper .swiper-wrapper .swiper-slide {
     background-position: center;
     background-size: cover;
     display: grid;
     place-items: center;
   }
 
-  .swiper-slide img {
+  .mySwiper .swiper-wrapper .swiper-slide img {
     display: block;
     width: 100%;
   }
 
 @media screen and (max-width: 768px){
+    h1{
+        font-size: 5.5em;
+    }
+}
+
+@media screen and (max-width: 500px){
     #img-title, #filter-title{
         display: block;
         padding: 0 0;
@@ -142,6 +167,18 @@ button{
     img, .img-loader, .upload-div{
         width: 300px !important;
         aspect-ratio: 1;
+    }
+
+    .combined-channel{
+        width: 200px;
+        grid-column-gap: 6px;
+        grid-row-gap: 6px;
+    }
+
+    .one-channel{
+        width: 100px;
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
     }
 
     .swiper-container {

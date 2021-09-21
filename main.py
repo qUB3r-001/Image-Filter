@@ -3,6 +3,7 @@ import numpy as np
 import cv2
 from flask import Flask, render_template, url_for, request, redirect
 from flask_bootstrap import Bootstrap
+from flask_dropzone import Dropzone
 import base64
 import io
 import time
@@ -44,6 +45,7 @@ def image_upload():
     for key in coef_dict:
         filter_matrix.append(coef_dict[key])
     img = request.files.get('image')
+    print(img)
     if img and allowed_file(img.filename):
         data = io.BytesIO()
         img.save(data)
@@ -61,15 +63,10 @@ def image_upload():
         if coef_dict['inlineRadioOptions'] == 'single':
             filter_matrix = filter_matrix[1:]
             filter_matrix = np.array(filter_matrix, dtype=np.float32)
-            filter_matrix = filter_matrix.reshape((3, 3))
+            filter_matrix = filter_matrix.reshape((5, 5))
 
-            new_width_range = resized_width - 3
-            new_height_range = resized_height - 3
-            blur_g = np.zeros((new_height_range, new_width_range), dtype=np.int8)
-            blur_r = np.zeros((new_height_range, new_width_range), dtype=np.int8)
-            blur_b = np.zeros((new_height_range, new_width_range), dtype=np.int8)
-
-            blur_g = cv2.filter2D(src=grn_arr, kernel=filter_matrix, ddepth=-1)
+            print(filter_matrix)
+            blur_g = cv2.filter2D(src=grn_arr, kernel=filter_matrix, ddepth=-1) 
             out_green = Image.fromarray(blur_g, 'L')
 
             blur_r = cv2.filter2D(src=red_arr, kernel=filter_matrix, ddepth=-1)
@@ -102,7 +99,7 @@ def image_upload():
         f_data = io.BytesIO()
         out_img.save(f_data, 'JPEG')
         encoded_f_img_data = base64.b64encode(f_data.getvalue())
-        time.sleep(3)
+        time.sleep(2)
         return render_template('index.html', img_data=encoded_img_data.decode('utf-8'),
                                filter_img_data=encoded_f_img_data.decode('utf-8'))
     else:

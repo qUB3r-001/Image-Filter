@@ -4,104 +4,116 @@
 
 
 <div class="container">
+
     <form action="/filtered" method="POST" enctype="multipart/form-data" class="text-center"
-                      id="filter_form">
+  id="filter_form">
         <div class="swiper myCarousel">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <h5 class="p-2">Step 1: Upload an Image</h5>
+                <div class="swiper-slide d-flex flex-column justify-content-evenly">
+                    <div class="p-1 align-self-stretch">
+                         <h5 class="m-0">Step 1: Upload an Image</h5>
+                    </div>
+
                     {% if extn_error:%}
                     <p class="text-danger">Upload correct file type as specified</p>
                     {% endif %}
-                    <div class="p-2">
-                        {% if img_data: %}
-                            <img src="data:image/jpg;base64, {{img_data}}" alt="" class="p-2"/>
-                        {% else: %}
+
+                    {% if img_data: %}
+                        <img src="data:image/jpg;base64, {{img_data}}" alt="" class="p-2"/>
+                    {% else: %}
+                        <div class="p-2 align-self-stretch">
+                            <img alt="" id="show_img" class=""/>
                             <input name="image" type="file" class="form-control" id="img_file" required>
-                            <img alt="" id="show_img" class="py-2"/>
-                        {% endif %}
-                    </div>
+                        </div>
+                    {% endif %}
+
                 </div>
                 <div class="swiper-slide">
-                    <h5 class="p-2">Step 2: Apply custom matrix filter on the image</h5>
-                    <div class="upload-div align-self-center">
-                        <div class="">
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="single-channel-radio-btn" value="single" onclick="modeSelect();" checked>
-                              <label class="form-check-label">Single Channel</label>
+                    <h5 class="p-1">Step 2: Apply custom matrix filter on the image</h5>
+
+                        <div class="upload-div">
+                            <div class="">
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="single-channel-radio-btn" value="single" onclick="modeSelect();" checked>
+                                  <label class="form-check-label">Single Channel</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rgb-channel-radio-btn" value="rgb" onclick="modeSelect();">
+                                  <label class="form-check-label">RGB Channel</label>
+                                </div>
                             </div>
-                            <div class="form-check form-check-inline">
-                              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rgb-channel-radio-btn" value="rgb" onclick="modeSelect();">
-                              <label class="form-check-label">RGB Channel</label>
+
+                            <div class="filter-coefs">
+                                <div class="single-channel">
+                                    <div class="d-flex justify-content-center py-3">
+                                        <div class="combined-channel">
+
+                                            {% for i in range(25):%}
+                                                <input name="filter{{i}}" type="number" step="0.0001" class="form-control" autocomplete="off" placeholder=0 value=0.0>
+                                            {% endfor %}
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="rgb-channel">
+                                    <div class="d-flex justify-content-center pt-3">
+                                        <div>
+                                            <p class="m-0">Red Channel</p>
+                                            <div class="one-channel">
+                                                {% for i in range(9): %}
+                                                    <input name="Rfilter{{i}}" type="number" step="0.0001" class="form-control" autocomplete="off" placeholder=1>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-evenly py-3">
+                                        <div>
+                                            <p class="m-0">Green Channel</p>
+                                            <div class="one-channel">
+                                                {% for i in range(9): %}
+                                                    <input name="Gfilter{{i}}" type="number" step="0.0001" class="form-control" autocomplete="off" placeholder=0>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="m-0">Blue Channel</p>
+                                            <div class="one-channel">
+                                                {% for i in range(9): %}
+                                                    <input name="Bfilter{{i}}" type="number" step="0.0001" class="form-control" autocomplete="off" placeholder=0>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
+                        <button type="submit" class="btn btn-dark" id="submit_form">Convert</button>
 
-                        <div class="filter-coefs">
-                            <div class="single-channel">
-                                <div class="d-flex justify-content-center py-3">
-                                    <div class="one-channel">
-                                        {% for i in range(9):%}
-                                            <input name="filter{{i}}" type="number" step="0.01" class="form-control" autocomplete="off" value=1>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="rgb-channel">
-                                <div class="d-flex justify-content-center py-3">
-                                    <div>
-                                        <p class="m-0">Red Channel</p>
-                                        <div class="one-channel">
-                                            {% for i in range(9): %}
-                                                <input name="Rfilter{{i}}" type="number" step="0.01" class="form-control" autocomplete="off" value=1>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-evenly py-3">
-                                    <div>
-                                        <p class="m-0">Green Channel</p>
-                                        <div class="one-channel">
-                                            {% for i in range(9): %}
-                                                <input name="Gfilter{{i}}" type="number" step="0.01" class="form-control" autocomplete="off" value=0>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p class="m-0">Blue Channel</p>
-                                        <div class="one-channel">
-                                            {% for i in range(9): %}
-                                                <input name="Bfilter{{i}}" type="number" step="0.01" class="form-control" autocomplete="off" value=0>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-dark" id="submit_form">Convert</button>
                 </div>
-                <div class="swiper-slide filter-image-div">
-                    <h5 class="p-2">Step 3: Final filtered Image</h5>
-                    <div>
-                        {% if filter_img_data %}
-                            <img src="data:image/jpg;base64, {{filter_img_data}}" alt="" id="result-img"/>
-                        {% else %}
-                            <div class="img-loader mx-auto" >
-                                <div class="loading-square" >
-                                </div>
+                <div class="swiper-slide final-filtered-div">
+                    <h5 class="p-1">Step 3: Final filtered Image</h5>
+
+                    {% if filter_img_data %}
+                        <img src="data:image/jpg;base64, {{filter_img_data}}" alt="" id="result-img"/>
+                    {% else %}
+                        <div class="img-loader mx-auto" >
+                            <div class="loading-square" >
                             </div>
-                        {% endif %}
-                    </div>
+                        </div>
+                    {% endif %}
+
                 </div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
-    </form>
+ </form>
 
-    <form action="/" method="GET" class="text-center p-2">
+
+
+    <form action="/" method="GET" class="text-center p-1">
         <button type="submit" class="btn btn-dark">Reset</button>
     </form>
 
@@ -114,9 +126,17 @@
                 </div>
                 <div class="swiper-slide bg-light">
                     <h5 class="text-center p-1">Standard Blur</h5>
+                    $$ \frac{1}{25}
+                        \begin{bmatrix}
+                        1 & 1 & 1 & 1 & 1\\
+                        1 & 1 & 1 & 1 & 1\\
+                        1 & 1 & 1 & 1 & 1\\
+                        1 & 1 & 1 & 1 & 1\\
+                        1 & 1 & 1 & 1 & 1\\
+                        \end{bmatrix}
+                    $$
                     <p class="text-center px-4">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    </p>
+                        A box blur (also known as a box linear filter) is a filter in which each pixel in the resulting image has a value equal to the average value of its neighboring pixels in the input image.                    </p>
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -129,7 +149,16 @@
               <img src="https://www.history.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTU3ODc4NjAzNTM2MTQ4MTkx/hith-eiffel-tower-istock_000016468972large-2.jpg" />
             </div>
             <div class="swiper-slide bg-light">
-                <h5 class="text-center p-1">Standard Blur</h5>
+                <h5 class="text-center p-1">Gaussian Blur</h5>
+                 $$ \frac{1}{256}
+                        \begin{bmatrix}
+                        1 & 4 & 6 & 4 & 1\\
+                        4 & 16 & 24 & 16 & 4\\
+                        6 & 24 & 36 & 24 & 6\\
+                        4 & 16 & 24 & 16 & 4\\
+                        1 & 4 & 6 & 4 & 1\\
+                        \end{bmatrix}
+                    $$
                 <p class="text-center px-4">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                 </p>
@@ -146,6 +175,14 @@
                 </div>
                 <div class="swiper-slide bg-light">
                     <h5 class="text-center p-1">Standard Blur</h5>
+                    $$\begin{bmatrix}
+                        1 & 4 & 6 & 4 & 1\\
+                        4 & 16 & 24 & 16 & 4\\
+                        6 & 24 & 36 & 24 & 6\\
+                        4 & 16 & 24 & 16 & 4\\
+                        1 & 4 & 6 & 4 & 1\\
+                        \end{bmatrix}
+                    $$
                     <p class="text-center px-4">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     </p>
@@ -188,7 +225,6 @@
         </div>
     </div>
 </div>
-
 
 
 
