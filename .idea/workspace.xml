@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="changed the convolve method to cv2.filter2d for faster output">
+    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="simplifed layout of mySwiper, added mathjax for matrices">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
@@ -160,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631361135881</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="simplifed layout of mySwiper, added mathjax for matrices">
+      <created>1632251460111</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1632251460111</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -204,6 +211,7 @@
     <MESSAGE value="Added image size limit (redirect left), changed resizing" />
     <MESSAGE value="reduced stride for kernel matrix to 1 (from 3/5), added floating value as matrix inputs (transformation too slow)" />
     <MESSAGE value="changed the convolve method to cv2.filter2d for faster output" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed the convolve method to cv2.filter2d for faster output" />
+    <MESSAGE value="simplifed layout of mySwiper, added mathjax for matrices" />
+    <option name="LAST_COMMIT_MESSAGE" value="simplifed layout of mySwiper, added mathjax for matrices" />
   </component>
 </project>

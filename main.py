@@ -35,7 +35,7 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
-    return render_template('index.html', extn_error=False)
+    return render_template('index.html')
 
 
 @app.route('/filtered', methods=['POST'])
@@ -84,7 +84,6 @@ def image_upload():
             filter_matrix_b = filter_matrix[19:]
             filter_matrix_b = np.array(filter_matrix_b, dtype=np.float32)
             filter_matrix_b = filter_matrix_b.reshape((3, 3))
-
             blur_g = cv2.filter2D(src=grn_arr, kernel=filter_matrix_g, ddepth=-1)
             out_green = Image.fromarray(blur_g, 'L')
 
@@ -103,7 +102,7 @@ def image_upload():
         return render_template('index.html', img_data=encoded_img_data.decode('utf-8'),
                                filter_img_data=encoded_f_img_data.decode('utf-8'))
     else:
-        return render_template('index.html', extn_error=True)
+        return render_template('index.html')
 
 
 if __name__ == '__main__':
