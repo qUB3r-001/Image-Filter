@@ -25,6 +25,10 @@ function modeSelect(){
 
 function reveal(){
     let value = $(".img-comp-slider").val();
+    let width = $(".img-comp-slider").width();
+    let shift = Math.round(value*width/100)+'px';
+    $(".img-final img").css('transform', 'translateX(-'+shift+')');
+    $(".img-final").css('marginLeft', shift);
 }
 
 $(function(){
@@ -37,7 +41,7 @@ $(function(){
         startingSlide = 2;
         $(".myCarousel").hide();
         $(".reset-btn").show();
-        let req_width = $(".img-comp-box img").width();
+        let req_width = $(".img-org img").width();
         $(".img-comp-slider").css('width', req_width+'px');
         $(".img-comp-slider").val(0);
       }

@@ -128,18 +128,21 @@
          </form>
 
     {% if filter_img_data %}
-    <div class="mx-5 p-3 text-center">
-        <div class="img-comp d-flex flex-column align-items-center">
-            <div class="img-comp-box">
-                <img src="data:image/jpg;base64, {{img_data}}" alt=""  class="org-img"/>
-                <img src="data:image/jpg;base64, {{filter_img_data}}" alt="" id="result-img" class=""/>
+        <div class="mx-5 p-3 text-center">
+            <div class="img-mix">
+                <div class="img-mix-wrapper">
+                    <div class="img-org">
+                        <img src="data:image/jpg;base64, {{img_data}}" alt=""  class="org-img"/>
+                    </div>
+                    <div class="img-final">
+                        <img src="data:image/jpg;base64, {{filter_img_data}}" alt="" id="result-img" class=""/>
+                    </div>
+                </div>
             </div>
 
-            <input type="range" class="form-range img-comp-slider mt-4" onchange="reveal();">
-            </div>
+            <input type="range" class="form-range img-comp-slider mt-2" onchange="reveal();">
         </div>
 
-    </div>
     {% endif %}
 
     <form action="/" method="GET" class="text-center p-1">
