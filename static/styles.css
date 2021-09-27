@@ -4,18 +4,62 @@
     box-sizing: border-box;
 }
 
-body{
+html, body{
     background-color: #f6f6f6;
+}
+
+.cover-box{
+    height: 100vh;
+    z-index: -999;
 }
 
 h1{
     font-family: 'Libre Franklin', sans-serif;
     font-size: 7em;
+    -webkit-text-stroke: 4px black;
+    background-color: #f6f6f6;
+    color: #f6f6f6;
 }
+
+.demo-div{
+    background-color: #f6f6f6;
+    height: auto;
+}
+
+.demo-image-div{
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+/*    grid-column-gap: 1px;
+    grid-row-gap: 1px;*/
+}
+
+.demo-kernel-div{
+    height: 90px;
+    width: 90px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+ /*   grid-column-gap: 1px;
+    grid-row-gap: 1px;*/
+}
+
+.demo-result-div{
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+/*    grid-column-gap: 1px;
+    grid-row-gap: 1px;*/
+}
+
 
 #img-title{
      color: #FFFFFF;
-     -webkit-text-stroke: 4px black;
+     /*-webkit-text-stroke: 4px #273036;*/
 }
 
 #img-title::before{
@@ -27,7 +71,7 @@ h1{
 }
 
 #filter-title{
-     color: black;
+     color: white;
 }
 
 
@@ -37,15 +81,14 @@ h1{
 
 .myCarousel{
     width: 90%;
+    border-radius: 30px;
 }
 
-.myCarousel .swiper-wrapper .swiper-slide{
-    height: auto;
-}
 
 .myCarousel .swiper-slide {
-        background: #fff;
-      }
+    height: auto;
+    background: #fff;
+}
 
 .myCarousel .swiper-pagination-bullet {
         width: 20px;
@@ -79,7 +122,7 @@ h1{
     position: absolute;
     top: 4px;
     left: 5px;
-    background-color: #007aff;
+    background-color: white;
     animation: load 2.8s ease-in;
     animation-fill-mode: forwards;
 }
@@ -157,7 +200,7 @@ h1{
 .img-div{
     position: absolute;
     inset: 0;
-    height: 85%;
+    height: 95%;
     width: 90%;
     border: 4px dashed #EAEAEA;
     border-radius: 10px;
@@ -277,8 +320,6 @@ button{
   .mySwiper .swiper-wrapper .swiper-slide {
     background-position: center;
     background-size: cover;
-    display: grid;
-    place-items: center;
   }
 
   .mySwiper .swiper-wrapper .swiper-slide img {
@@ -306,6 +347,10 @@ button{
         width: 200px;
         grid-column-gap: 6px;
         grid-row-gap: 6px;
+    }
+
+    .combined-channel input{
+
     }
 
     .one-channel{
