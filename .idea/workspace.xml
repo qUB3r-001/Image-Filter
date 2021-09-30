@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="added image compare slider">
+    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="added demo correlation visual (animation left), mathjax sizing found, mobile viewport adjustment left.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
@@ -178,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632641006260</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added demo correlation visual (animation left), mathjax sizing found, mobile viewport adjustment left.">
+      <created>1632779215890</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1632779215890</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -225,6 +233,7 @@
     <MESSAGE value="simplifed layout of mySwiper, added mathjax for matrices" />
     <MESSAGE value="changed upload layout, new step flow" />
     <MESSAGE value="added image compare slider" />
-    <option name="LAST_COMMIT_MESSAGE" value="added image compare slider" />
+    <MESSAGE value="added demo correlation visual (animation left), mathjax sizing found, mobile viewport adjustment left." />
+    <option name="LAST_COMMIT_MESSAGE" value="added demo correlation visual (animation left), mathjax sizing found, mobile viewport adjustment left." />
   </component>
 </project>

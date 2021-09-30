@@ -7,6 +7,7 @@ from flask_dropzone import Dropzone
 import base64
 import io
 import time
+from random import randint
 
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -35,7 +36,19 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    demo_result_array = [randint(40, 90) for _ in range(25)]
+    demo_img_array = [50-i for i in range(25)]
+    demo_img_array = np.reshape(demo_img_array, (5, 5))
+    demo_img_array = np.pad(demo_img_array, ((1, 1), (1, 1)), 'constant', constant_values=96)
+    demo_img_array = demo_img_array.flatten()
+    # corr_demo_img = []
+    # for i in range(5):
+    #     for j in range(5):
+    #         temp = demo_img_to_js[i:i+3, j:j+3].flatten()
+    #         corr_demo_img.append(temp)
+    return render_template('index.html',
+                           demo_result_array=demo_result_array,
+                           demo_img_array=demo_img_array)
 
 
 @app.route('/filtered', methods=['POST'])

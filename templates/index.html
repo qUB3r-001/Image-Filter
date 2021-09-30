@@ -1,44 +1,77 @@
 {% include 'header.html' %}
 
-<div class="container-fluid m-0 p-0 position-fixed top-0 cover-box d-flex flex-column">
+
+<div class="container-fluid m-0 p-0 cover-box d-flex flex-column" style="background-color: #f6f6f6;">
 
     <h1 class="text-center p-1 mb-0">IMAGE FILTER<!--<span id="img-title">IMAGE</span><span id="filter-title">FILTER</span>--></h1>
-
-    <div class="demo-div p-4 d-flex justify-content-evenly align-items-center mx-auto flex-fill w-100">
-            <div class="demo-image">
-                <div class="demo-image-div">
-                    {% for i in range(25): %}
-                        <div class="img-pixel" style="background-color: hsl(0,0%,{{ 50-i}}%);"></div>
-                    {% endfor %}
-                </div>
+    <div class="demo-div d-flex justify-content-evenly align-items-center">
+        <div class="demo-image">
+            <div class="demo-image-div">
+                {% for i in range(49): %}
+                    <div class="img-pixel" style="background-color: hsl(0,0%,{{ demo_img_array[i]}}%);"></div>
+                {% endfor %}
+                <div class="focus-image"></div>
             </div>
-            $$ \bigotimes $$
-            <div class="demo-kernel">
-                <div class="demo-kernel-div">
+        </div>
+        <div class="circle-to">⊗</div>
+        <div class="demo-kernel">
+            <div class="demo-kernel-div">
+                {% for i in range(9): %}
+                <div class="kernel-pixel" style="background-color: hsl(0,0%,{{80-i}}%);"></div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="equal-to">=</div>
+        <div class="demo-result">
+            <div class="demo-result-div">
+                {% for i in range(25): %}
+                    <div class="result-pixel" style="background-color: hsl(0,0%,{{demo_result_array[i]}}%);"></div>
+                {% endfor %}
+                <div class="focus-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-correlation-div d-flex justify-content-evenly align-items-center">
+        <div class="d-flex">
+            <div class="demo-kernel-2">
+                <div class="demo-kernel-div-2">
                     {% for i in range(9): %}
                     <div class="kernel-pixel" style="background-color: hsl(0,0%,{{80-i}}%);"></div>
                     {% endfor %}
                 </div>
             </div>
-            $$ \huge{=} $$
-            <div class="demo-result">
-                <div class="demo-result-div mx-auto">
-                    {% for i in range(25): %}
-                        <div class="result-pixel" style="background-color: hsl(0,0%,{{range(40, 90) | random}}%);"></div>
+            <div class="demo-image-2">
+                <div class="demo-image-div-2">
+                    {% for i in range(9): %}
+                        <div class="demo-img-pixel"></div>
                     {% endfor %}
                 </div>
             </div>
+        </div>
+
+
+        <div class="demo-result-2">
+            <div class="demo-result-div-2">
+                <div class="result-pixel" style="background-color: hsl(0,0%,{{demo_result_array[0]}}%);"></div>
+            </div>
+        </div>
+
     </div>
 
-    <a class="text-center p-3 m-0 text-dark slider-btn" href="#main"><i class="fas fa-angle-double-down" style="font-size: 50px;"></i></a>
+    <!--<a class="text-center p-3 m-0 text-dark slider-btn"></a>-->
 </div>
 <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
   <path fill="#f6f6f6" fill-opacity="1" d="M0,160L40,144C80,128,160,96,240,101.3C320,107,400,149,480,181.3C560,213,640,235,720,229.3C800,224,880,192,960,160C1040,128,1120,96,1200,112C1280,128,1360,192,1400,224L1440,256L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
 </svg>-->
-<div class="container-fluid bg-white" style="margin-top: 100vh;" id="main">
+<div class="container-fluid bg-white">
+<!--
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#f6f6f6" fill-opacity="1" d="M0,128L120,154.7C240,181,480,235,720,234.7C960,235,1200,181,1320,154.7L1440,128L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path><i class="fas fa-angle-double-down" style="font-size: 30px;"></i></svg>
+-->
     <form action="/filtered" method="POST" enctype="multipart/form-data" class="text-center py-5"
         id="filter_form">
         <div class="swiper myCarousel">
+            <div class="swiper-pagination position-relative bottom-0 d-flex justify-content-evenly p-1"></div>
             <div class="swiper-button-next end-0"></div>
             <div class="swiper-button-prev start-0"></div>
             <div class="swiper-wrapper">
@@ -65,7 +98,9 @@
                 </div>
 
                 <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">
+<!--
                     <h5 class="p-1">Step 2: Apply custom matrix filter on the image</h5>
+-->
 
                         <div class="upload-div">
                             <div class="">
@@ -130,7 +165,9 @@
                 </div>
 
                 <div class="swiper-slide d-flex flex-column">
+<!--
                     <h5 class="p-1">Step 3: Final filtered Image</h5>
+-->
 
                     {% if filter_img_data %}
 
@@ -169,7 +206,9 @@
     </form>
 
 
-    <div class="row bg-white">
+    <div class="row" style="background-color: #f6f6f6;">
+        <h2 class="text-center p-1 mb-0">Filters</h2>
+        <hr>
         <div class="col-12 py-5">
             <div class="swiper-container mySwiper mx-auto">
               <div class="swiper-wrapper">
@@ -211,9 +250,8 @@
                         1 & 4 & 6 & 4 & 1\\
                         \end{bmatrix}
                     $$
-                <p class="text-center px-4">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                </p>
+                 <p class="text-center px-4">
+                        A box blur (also known as a box linear filter) is a filter in which each pixel in the resulting image has a value equal to the average value of its neighboring pixels in the input image.                    </p>
             </div>
           </div>
           <div class="swiper-pagination"></div>

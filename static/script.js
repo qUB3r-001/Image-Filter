@@ -31,13 +31,36 @@ function reveal(){
     $(".img-final").css('marginLeft', shift);
 }
 
-
 $(function(){
       var startingSlide = 0;
+      var demoImgArr = [...Array(7)].map(el => Array(7).fill(96));
+      var shift = 0;
+    for(let i=0; i<7; i++){
+        for(let j=0; j<7; j++){
+            if(i==0 || j==0 || i==6 || j==6);
+            else{
+                demoImgArr[i][j] = 51-j-5*(i-1);
+            };
+        }
+    }
+
+    /*console.log(demoImgArr.slice(0,3).map(el => el.slice(0,3)).flat());*/
+
+    var showDemoImgArr = [...Array(25)];
+    /*console.log(showDemoImgArr);*/
+
+    for(let i=0; i<5; i++){
+        for(let j=0; j<5; j++){
+            showDemoImgArr[j+5*i] = demoImgArr.slice(i,3+i).map(el => el.slice(j,j+3)).flat()
+        }
+    }
+
+    /*console.log(showDemoImgArr);*/
 
       $(".rgb-channel").hide();
       $(".rgb-channel input").prop('disabled', true);
       $(".single-channel input").prop('disabled', false);
+      $("#submit_form").prop('disabled', true);
 
       if($("#result-img").attr('src')){
         startingSlide = 2;
@@ -46,7 +69,7 @@ $(function(){
         let req_width = $(".img-org img").width();
         $(".img-comp-slider").css('width', req_width+'px');
         $(".img-comp-slider").val(0);
-        $(".slider-btn")[0].click();
+        /*$(".slider-btn")[0].click();*/
       }
 
       var swiper = new Swiper(".mySwiper", {
@@ -68,6 +91,13 @@ $(function(){
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: false,
+          renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + (index + 1) + "</span>";
+          },
+        },
         simulateTouch: false,
         initialSlide: startingSlide,
       });
@@ -81,6 +111,7 @@ $(function(){
         $(".loader-bar").delay(3000).hide(0);
         $(".after-img-load").delay(3000).show(0);
         $("#show_img").show();
+        $("#submit_form").prop('disabled', false);
         //$("#img_file").hide();
     });
 
@@ -95,7 +126,18 @@ $(function(){
         $(".loader-bar").hide();
         $(".after-img-load").hide();
         $("#img_file").val('');
+        $("#submit_form").prop('disabled', true);
     });
+
+    /*console.log($(".demo-img-pixel"));*/
+    setInterval(function(){
+        if(shift>24) shift = 0;
+        $(".demo-img-pixel").each(function(i){
+            $(this).css('background-color', 'hsl(0,0%,'+showDemoImgArr[shift][i]+'%)');
+        });
+        shift++;
+    }, 1000);
+
 
 });
 
