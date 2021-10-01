@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="added demo correlation visual (animation left), mathjax sizing found, mobile viewport adjustment left.">
+    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="new image animation done, (result animation left)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script.js" afterDir="false" />
@@ -186,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632779215890</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="new image animation done, (result animation left)">
+      <created>1633035442249</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1633035442269</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -234,6 +241,7 @@
     <MESSAGE value="changed upload layout, new step flow" />
     <MESSAGE value="added image compare slider" />
     <MESSAGE value="added demo correlation visual (animation left), mathjax sizing found, mobile viewport adjustment left." />
-    <option name="LAST_COMMIT_MESSAGE" value="added demo correlation visual (animation left), mathjax sizing found, mobile viewport adjustment left." />
+    <MESSAGE value="new image animation done, (result animation left)" />
+    <option name="LAST_COMMIT_MESSAGE" value="new image animation done, (result animation left)" />
   </component>
 </project>

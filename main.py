@@ -9,7 +9,11 @@ import io
 import time
 from random import randint
 
-
+DEMO_RESULT_ARRAY = [77, 40, 58, 66, 50, 82, 69, 87, 49, 78, 56, 47, 61, 60, 55, 83, 62, 53, 49, 64, 41, 42, 68, 57, 58]
+DEMO_IMG_ARRAY = [50 - i for i in range(25)]
+DEMO_IMG_ARRAY = np.reshape(DEMO_IMG_ARRAY, (5, 5))
+DEMO_IMG_ARRAY = np.pad(DEMO_IMG_ARRAY, ((1, 1), (1, 1)), 'constant', constant_values=96)
+DEMO_IMG_ARRAY = DEMO_IMG_ARRAY.flatten()
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 app = Flask(__name__)
@@ -36,19 +40,14 @@ def allowed_file(filename):
 
 @app.route('/')
 def index():
-    demo_result_array = [randint(40, 90) for _ in range(25)]
-    demo_img_array = [50-i for i in range(25)]
-    demo_img_array = np.reshape(demo_img_array, (5, 5))
-    demo_img_array = np.pad(demo_img_array, ((1, 1), (1, 1)), 'constant', constant_values=96)
-    demo_img_array = demo_img_array.flatten()
     # corr_demo_img = []
     # for i in range(5):
     #     for j in range(5):
     #         temp = demo_img_to_js[i:i+3, j:j+3].flatten()
     #         corr_demo_img.append(temp)
     return render_template('index.html',
-                           demo_result_array=demo_result_array,
-                           demo_img_array=demo_img_array)
+                           demo_result_array=DEMO_RESULT_ARRAY,
+                           demo_img_array=DEMO_IMG_ARRAY)
 
 
 @app.route('/filtered', methods=['POST'])
@@ -113,9 +112,11 @@ def image_upload():
         encoded_f_img_data = base64.b64encode(f_data.getvalue())
         time.sleep(2)
         return render_template('index.html', img_data=encoded_img_data.decode('utf-8'),
-                               filter_img_data=encoded_f_img_data.decode('utf-8'))
+                               filter_img_data=encoded_f_img_data.decode('utf-8'),
+                               demo_result_array=DEMO_RESULT_ARRAY,
+                               demo_img_array=DEMO_IMG_ARRAY)
     else:
-        return render_template('index.html')
+        return redirect(url_for('index'))
 
 
 if __name__ == '__main__':

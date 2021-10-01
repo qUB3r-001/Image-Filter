@@ -30,8 +30,9 @@
                 <div class="focus-result"></div>
             </div>
         </div>
-    </div>
 
+    </div>
+    <p class="text-black-50 text-center">Correlation Operation on Image and Kernel</p>
     <div class="demo-correlation-div d-flex justify-content-evenly align-items-center">
         <div class="d-flex">
             <div class="demo-kernel-2">
@@ -53,12 +54,15 @@
 
         <div class="demo-result-2">
             <div class="demo-result-div-2">
-                <div class="result-pixel" style="background-color: hsl(0,0%,{{demo_result_array[0]}}%);"></div>
+                <div class="result-pixel-2" style="background-color: hsl(0,0%,{{demo_result_array[0]}}%);"></div>
             </div>
         </div>
 
     </div>
+    <p class="text-black-50 text-center">Subpart of Image Matrix is multiplied elment wise with kernel and the resultant number gives the value to the filtered image pixel</p>
 
+    <div class="top-left-point"></div>
+    <div class="bottom-left-point"></div>
     <!--<a class="text-center p-3 m-0 text-dark slider-btn"></a>-->
 </div>
 <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -70,7 +74,7 @@
 -->
     <form action="/filtered" method="POST" enctype="multipart/form-data" class="text-center py-5"
         id="filter_form">
-        <div class="swiper myCarousel">
+        <div class="swiper myCarousel" >
             <div class="swiper-pagination position-relative bottom-0 d-flex justify-content-evenly p-1"></div>
             <div class="swiper-button-next end-0"></div>
             <div class="swiper-button-prev start-0"></div>
@@ -160,11 +164,11 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-dark" id="submit_form">Convert</button>
+                        <!--<button type="submit" class="btn btn-dark" id="submit_form">Convert</button>-->
 
                 </div>
 
-                <div class="swiper-slide d-flex flex-column">
+                <div class="swiper-slide d-flex flex-column align-items-center justify-content-center">
 <!--
                     <h5 class="p-1">Step 3: Final filtered Image</h5>
 -->
@@ -172,7 +176,8 @@
                     {% if filter_img_data %}
 
                     {% else %}
-                        <div class="img-loader mx-auto my-3" >
+                        <div class="img-loader my-3" >
+                            <button type="submit" class="btn btn-dark" id="submit_form">Convert</button>
                             <div class="loading-square mx-auto" >
                             </div>
                         </div>

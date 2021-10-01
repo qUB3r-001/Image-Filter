@@ -6,6 +6,7 @@
 
 html, body{
     background-color: #eaeaea;
+    overflow-x: hidden;
 }
 
 /*.cover-box{
@@ -42,10 +43,41 @@ h1{
     }
 }
 
+.top-left-point{
+    display: none;
+    position: absolute;
+    height: 130px;
+    width: 0;
+    border-left: 1px solid gold;
+    transform-origin: top left;
+    z-index: 999;
+}
+
+.bottom-left-point{
+    display: none;
+    position: absolute;
+    height: 130px;
+    width: 0;
+    border-left: 1px solid gold;
+    transform-origin: top left;
+    z-index: 999;
+}
+
 .demo-div, .demo-correlation-div{
     position: relative;
     background-color: #f6f6f6;
-    height: 300px;
+    height: 35vh;
+    transform: scale(0);
+    animation: zoomin 0.7s ease-in-out forwards;
+}
+
+@keyframes zoomin{
+    75%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 
 .demo-image{
@@ -286,20 +318,25 @@ h1{
 }
 
 .myCarousel{
-    width: 80%;
+    width: 90%;
+    height: 80vh;
+}
+
+.myCarousel .swiper-wrapper{
+    height: 90%;
 }
 
 
 .myCarousel .swiper-slide {
-    height: auto;
+    /*height: auto;*/
     background: #fff;
 }
 
 .myCarousel .swiper-pagination-bullet {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         text-align: center;
-        font-size: 18px;
+        font-size: 26px;
         color: #000;
         opacity: 1;
         background: rgba(0, 0, 0, 0.2);
@@ -414,7 +451,7 @@ h1{
 .img-loader{
     width: 300px;
     aspect-ratio: 1;
-    border: 1px solid #C0C0C0;
+    /*border: 1px solid #C0C0C0;*/
     display: grid;
     place-items: center;
 }
