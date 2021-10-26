@@ -77,7 +77,7 @@ $(function(){
         effect: "cube",
         grabCursor: true,
         cubeEffect: {
-          shadow: true,
+          shadow: false,
           slideShadows: false,
           shadowOffset: 20,
           shadowScale: 0.94,
@@ -103,6 +103,22 @@ $(function(){
         initialSlide: startingSlide,
       });
 
+      const swiper_final = new Swiper(".Swiper-Main",{
+        navigation: {
+            nextEl: '.swiper-button-custom-next',
+            prevEl: '.swiper-button-custom-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<span class="' + className + '">' + (index + 1) + "</span>";
+            },
+        },
+        spaceBetween: 100,
+
+      });
+
 
 
     $("#img_file").change(function(){
@@ -121,7 +137,7 @@ $(function(){
         $(".loading-square").show();
         $("#result-div").show();
 /*        swiper1.slideNext();*/
-        $(".myCarousel .swiper-pagination-bullet-active").html('<i class="fas fa-check"></i>');
+//        $(".myCarousel .swiper-pagination-bullet-active").html('<i class="fas fa-check"></i>');
     });
 
     $(".after-img-load").click(function(){
@@ -132,14 +148,14 @@ $(function(){
         $("#submit_form").prop('disabled', true);
     });
 
-    $(".myCarousel .swiper-button-next").click(function(){
-        let num = $(".myCarousel .swiper-pagination-bullet-active").text();
-
-        $(".myCarousel .swiper-pagination span").each(function(i){
-            if(i+1<num) $(this).html('<i class="fas fa-check"></i>');
-            else $(this).html(i+1);
-        });
-    });
+//    $(".myCarousel .swiper-button-next").click(function(){
+//        let num = $(".myCarousel .swiper-pagination-bullet-active").text();
+//
+//        $(".myCarousel .swiper-pagination span").each(function(i){
+//            if(i+1<num) $(this).html('<i class="fas fa-check"></i>');
+//            else $(this).html(i+1);
+//        });
+//    });
 
 /*     $(".myCarousel .swiper-button-prev").click(function(){
         let num = $(".myCarousel .swiper-pagination-bullet-active").text();

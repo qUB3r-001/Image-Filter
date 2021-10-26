@@ -8,11 +8,12 @@ import base64
 import io
 import time
 from random import randint
+from data import DICT
 
 DEMO_RESULT_ARRAY = [77, 40, 58, 66, 50, 82, 69, 87, 49, 78, 56, 47, 61, 60, 55, 83, 62, 53, 49, 64, 41, 42, 68, 57, 58]
 DEMO_IMG_ARRAY = [50 - i for i in range(25)]
 DEMO_IMG_ARRAY = np.reshape(DEMO_IMG_ARRAY, (5, 5))
-DEMO_IMG_ARRAY = np.pad(DEMO_IMG_ARRAY, ((1, 1), (1, 1)), 'constant', constant_values=96)
+DEMO_IMG_ARRAY = np.pad(DEMO_IMG_ARRAY, ((1, 1), (1, 1)), 'constant', constant_values=255)
 DEMO_IMG_ARRAY = DEMO_IMG_ARRAY.flatten()
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
@@ -47,7 +48,7 @@ def index():
     #         corr_demo_img.append(temp)
     return render_template('index.html',
                            demo_result_array=DEMO_RESULT_ARRAY,
-                           demo_img_array=DEMO_IMG_ARRAY)
+                           demo_img_array=DEMO_IMG_ARRAY, data=DICT)
 
 
 @app.route('/filtered', methods=['POST'])
