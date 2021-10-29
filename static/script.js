@@ -65,17 +65,17 @@ $(function(){
 
       if($("#result-img").attr('src')){
         startingSlide = 2;
-        $("#filter_form").hide();
+        $(".hide-after-result").hide();
         $(".reset-btn").show();
         let req_width = $(".img-org img").width();
         $(".img-comp-slider").css('width', req_width+'px');
         $(".img-comp-slider").val(0);
+        $(".img-mix-wrapper").css('width', req_width+'px');
         /*$(".slider-btn")[0].click();*/
       }
 
       var swiper = new Swiper(".mySwiper", {
         effect: "cube",
-        grabCursor: true,
         cubeEffect: {
           shadow: false,
           slideShadows: false,
@@ -84,23 +84,8 @@ $(function(){
         },
         pagination: {
           el: ".swiper-pagination",
+          clickable: true,
         },
-      });
-
-       var swiper1 = new Swiper(".myCarousel", {
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: false,
-          renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + "</span>";
-          },
-        },
-        simulateTouch: false,
-        initialSlide: startingSlide,
       });
 
       const swiper_final = new Swiper(".Swiper-Main",{
@@ -119,7 +104,9 @@ $(function(){
 
       });
 
-
+//    swiper_final.on('beforeInit', function () {
+//      $(`.steps-apply-filter p:nth-of-type(${+swiper_final.activeIndex + 1}`).css('background-color', 'red');
+//    });
 
     $("#img_file").change(function(){
         preview(this);

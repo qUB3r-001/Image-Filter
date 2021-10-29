@@ -4,418 +4,320 @@
 <div class="container-fluid p-0 cover-box d-flex flex-column">
 
 	<h1 class="text-center p-1 mb-0">IMAGE FILTER</h1>
-	<div class="demo-div d-flex justify-content-evenly align-items-center">
-		<div class="demo-image">
-			<div class="demo-image-div">
-				{% for i in range(49): %}
-				<div class="img-pixel" style="background-color: hsl(0,0%,{{ demo_img_array[i]}}%);"></div>
-				{% endfor %}
-				<div class="focus-image"></div>
-			</div>
-		</div>
-		<div class="circle-to">⊗</div>
-		<div class="demo-kernel">
-			<div class="demo-kernel-div">
-				{% for i in range(9): %}
-				<div class="kernel-pixel" style="background-color: hsl(0,0%,{{80-i}}%);"></div>
-				{% endfor %}
-			</div>
-		</div>
-		<div class="equal-to">=</div>
-		<div class="demo-result">
-			<div class="demo-result-div">
-				{% for i in range(25): %}
-				<div class="result-pixel" style="background-color: hsl(0,0%,{{demo_result_array[i]}}%);"></div>
-				{% endfor %}
-				<div class="focus-result"></div>
-			</div>
-		</div>
 
-	</div>
-	<p class="text-black-50 text-center">Correlation Operation on Image and Kernel</p>
-	<div class="demo-correlation-div d-flex justify-content-evenly align-items-center">
-		<div class="d-flex">
-			<div class="demo-kernel-2">
-				<div class="demo-kernel-div-2">
-					{% for i in range(9): %}
-					<div class="kernel-pixel" style="background-color: hsl(0,0%,{{80-i}}%);"></div>
-					{% endfor %}
+
+	<div class="p-2" style="font-family: 'Yomogi', cursive;">
+		<h5 class="text-center mb-0">Matrix based filters on Image</h5>
+		<div class="row mx-auto px-0">
+			<div class="col-lg-3 col-md-12 p-4 ">
+				It is a long established fact that a reader will be distracted by the readable content of a page when
+				looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+				of
+				letters, as opposed to using 'Content here, content here', making it look like readable English. Many
+				desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a
+				search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have
+				evolved
+				over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+			</div>
+			<div class="demo-div d-flex justify-content-evenly align-items-center col-lg-6 col-md-12 p-5"
+			     style="perspective: 500px;">
+				<!--				<div class="demo-kernel">-->
+				<!--					<div class="demo-kernel-div">-->
+				<!--						{% for i in range(9): %}-->
+				<!--						<div class="kernel-pixel" style="background-color: hsl(0,0%,{{80-i}}%);"></div>-->
+				<!--						{% endfor %}-->
+				<!--					</div>-->
+				<!--				</div>-->
+				<div class="demo-image">
+					<div class="demo-image-div">
+						{% for i in range(49): %}
+						<div class="img-pixel" style="background-color: hsl(0,0%,{{ demo_img_array[i]}}%);"></div>
+						{% endfor %}
+						<div class="focus-image"></div>
+					</div>
 				</div>
-			</div>
-			<div class="demo-image-2">
-				<div class="demo-image-div-2">
-					{% for i in range(9): %}
-					<div class="demo-img-pixel"></div>
-					{% endfor %}
+				<!--			<div class="circle-to">⊗</div>-->
+				<!--			<div class="equal-to">=</div>-->
+				<div class="demo-result">
+					<div class="demo-result-div">
+						{% for i in range(25): %}
+						<div class="result-pixel" style="background-color: hsl(0,0%,{{demo_result_array[i]}}%);"></div>
+						{% endfor %}
+						<div class="focus-result"></div>
+					</div>
 				</div>
+
+			</div>
+			<div class="col-lg-3 col-md-12 p-4">
+				It is a long established fact that a reader will be distracted by the readable content of a page when
+				looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+				of
+				letters, as opposed to using 'Content here, content here', making it look like readable English. Many
+				desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a
+				search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have
+				evolved
+				over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 			</div>
 		</div>
-
-
-		<div class="demo-result-2">
-			<div class="demo-result-div-2">
-				<div class="result-pixel-2" style="background-color: hsl(0,0%,{{demo_result_array[0]}}%);"></div>
-			</div>
-		</div>
-
 	</div>
-	<p class="text-black-50 text-center">Subpart of Image Matrix is multiplied elment wise with kernel and the resultant
-		number gives the value to the filtered image pixel</p>
+	<!--	<div class="demo-div d-flex justify-content-evenly align-items-center">-->
+	<!--		<div class="demo-image">-->
+	<!--			<div class="demo-image-div">-->
+	<!--				{% for i in range(49): %}-->
+	<!--				<div class="img-pixel" style="background-color: hsl(0,0%,{{ demo_img_array[i]}}%);"></div>-->
+	<!--				{% endfor %}-->
+	<!--				<div class="focus-image"></div>-->
+	<!--			</div>-->
+	<!--		</div>-->
+	<!--		<div class="circle-to">⊗</div>-->
+	<!--		<div class="demo-kernel">-->
+	<!--			<div class="demo-kernel-div">-->
+	<!--				{% for i in range(9): %}-->
+	<!--				<div class="kernel-pixel" style="background-color: hsl(0,0%,{{80-i}}%);"></div>-->
+	<!--				{% endfor %}-->
+	<!--			</div>-->
+	<!--		</div>-->
+	<!--		<div class="equal-to">=</div>-->
+	<!--		<div class="demo-result">-->
+	<!--			<div class="demo-result-div">-->
+	<!--				{% for i in range(25): %}-->
+	<!--				<div class="result-pixel" style="background-color: hsl(0,0%,{{demo_result_array[i]}}%);"></div>-->
+	<!--				{% endfor %}-->
+	<!--				<div class="focus-result"></div>-->
+	<!--			</div>-->
+	<!--		</div>-->
 
-	<div class="top-left-point"></div>
-	<div class="bottom-left-point"></div>
+	<!--	</div>-->
+	<!--	<p class="text-black-50 text-center p-4 mb-0">Correlation Operation on Image and Kernel</p>-->
+	<!--	<div class="demo-correlation-div d-flex justify-content-evenly align-items-center">-->
+	<!--		<div class="d-flex">-->
+	<!--			<div class="demo-kernel-2">-->
+	<!--				<div class="demo-kernel-div-2">-->
+	<!--					{% for i in range(9): %}-->
+	<!--					<div class="kernel-pixel" style="background-color: hsl(0,0%,{{80-i}}%);"></div>-->
+	<!--					{% endfor %}-->
+	<!--				</div>-->
+	<!--			</div>-->
+	<!--			<div class="demo-image-2">-->
+	<!--				<div class="demo-image-div-2">-->
+	<!--					{% for i in range(9): %}-->
+	<!--					<div class="demo-img-pixel"></div>-->
+	<!--					{% endfor %}-->
+	<!--				</div>-->
+	<!--			</div>-->
+	<!--		</div>-->
+
+
+	<!--		<div class="demo-result-2">-->
+	<!--			<div class="demo-result-div-2">-->
+	<!--				<div class="result-pixel-2" style="background-color: hsl(0,0%,{{demo_result_array[0]}}%);"></div>-->
+	<!--			</div>-->
+	<!--		</div>-->
+
+	<!--	</div>-->
+	<!--	<p class="text-black-50 text-center p-4 mb-0">Subpart of Image Matrix is multiplied elment wise with kernel and the-->
+	<!--		resultant-->
+	<!--		number gives the value to the filtered image pixel</p>-->
+
+	<!--	<div class="top-left-point"></div>-->
+	<!--	<div class="bottom-left-point"></div>-->
 	<!--<a class="text-center p-3 m-0 text-dark slider-btn"></a>-->
 </div>
+<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+	<path d="M0,256L1440,64L1440,320L0,320Z" fill="#212529" fill-opacity="1"></path>
+</svg>
+<div class="container-fluid row mx-auto p-5 bg-dark text-white hide-after-result">
+	<div class="col-xl-5 col-md-12 p-0">
+		<div class="p-4 d-flex flex-column justify-content-center align-items-center h-100"
+		     style="font-family: 'Yomogi', cursive;">
+			<h4 class="text-center p-3">How to apply Matrix filter on image?</h4>
+			<div class="steps-apply-filter">
+				<p class="m-0 p-3">Step 1: Upload an Image</p>
+				<p class="m-0 p-3">Step 2: Select filter type and fill matrix values</p>
+				<p class="m-0 p-3">Step 3: Click on Convert button</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-7 col-md-12 p-0 bg-white">
+		<form action="/filtered" enctype="multipart/form-data" id="filter_form"
+		      method="POST">
+			<div class="d-flex justify-content-center align-items-center h-100 p-3">
 
-<!--<div class="container-fluid bg-white row mx-auto">-->
+				<!-- If we need navigation buttons -->
+				<div class="swiper-button-custom-prev"><i class="fas fa-arrow-left"></i></div>
+				<!-- Slider main container -->
+				<div class="swiper Swiper-Main">
+					<!-- Additional required wrapper -->
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide p-4">
+							<div class="img-div">
+								<div class="before-img-load text-center p-5">
+									<i class="fas fa-upload p-3" style="font-size: 3.5em"></i>
+									<p class="p-2 mb-0">Drag or drop your image here</p>
+									<p class="p-2 mb-0">Or</p>
+									<div class="img-input-div btn rounded-pill text-white"
+									     style="background-color: #212529">
+										<input id="img_file" name="image" type="file"/>
+										Browse Files
+									</div>
+								</div>
+								<div class="loader-bar">
+									<div class="loader"></div>
+								</div>
+								<div class="after-img-load">
+									<img alt="" id="show_img" src=""/>
+									<i class="fas fa-times-circle"></i>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide p-4">
+							<div class="upload-div">
+								<div class="">
+									<div class="form-check form-check-inline">
+										<input checked class="form-check-input" id="single-channel-radio-btn"
+										       name="inlineRadioOptions" onclick="modeSelect();" type="radio"
+										       value="single">
+										<label class="form-check-label">Single Channel</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input class="form-check-input" id="rgb-channel-radio-btn"
+										       name="inlineRadioOptions"
+										       onclick="modeSelect();" type="radio" value="rgb">
+										<label class="form-check-label">RGB Channel</label>
+									</div>
+								</div>
 
-<!--	<div class="col-md-7 col-12">-->
-<!--		<form action="/filtered" class="text-center py-5" enctype="multipart/form-data" id="filter_form"-->
-<!--		      method="POST">-->
-<!--			&lt;!&ndash;        <div class="swiper myCarousel" >&ndash;&gt;-->
-<!--			&lt;!&ndash;            <div class="swiper-pagination position-relative bottom-0 d-flex justify-content-evenly p-1"></div>&ndash;&gt;-->
-<!--			&lt;!&ndash;            <div class="swiper-button-next"></div>&ndash;&gt;-->
-<!--			&lt;!&ndash;            <div class="swiper-button-prev"></div>&ndash;&gt;-->
-<!--			&lt;!&ndash;            <div class="swiper-wrapper">&ndash;&gt;-->
-<!--			&lt;!&ndash;                <div class="swiper-slide d-flex flex-column">&ndash;&gt;-->
-<!--			&lt;!&ndash;                    <div class="img-div d-flex flex-column justify-content-center align-items-center">&ndash;&gt;-->
-<!--			&lt;!&ndash;                        <div class="before-img-load">&ndash;&gt;-->
-<!--			&lt;!&ndash;                            <i class="fas fa-upload fs-1 p-2"></i>&ndash;&gt;-->
-<!--			&lt;!&ndash;                            <p>Drag or drop your image here</p>&ndash;&gt;-->
-<!--			&lt;!&ndash;                            <p>Or</p>&ndash;&gt;-->
-<!--			&lt;!&ndash;                            <div class="img-input-div">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                <input type="file" class="btn btn-dark rounded-pill" name="image" id="img_file">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                Browse Files&ndash;&gt;-->
-<!--			&lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                        <div class="loader-bar">&ndash;&gt;-->
-<!--			&lt;!&ndash;                            <div class="loader"></div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                        <div class="after-img-load">&ndash;&gt;-->
-<!--			&lt;!&ndash;                            <img alt="" id="show_img" class=""/>&ndash;&gt;-->
-<!--			&lt;!&ndash;                            <i class="fas fa-times-circle"></i>&ndash;&gt;-->
-<!--			&lt;!&ndash;                        </div>&ndash;&gt;-->
+								<div class="filter-coefs">
+									<div class="single-channel">
+										<div class="d-flex justify-content-center py-3">
+											<div class="combined-channel">
 
-<!--			&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                </div>&ndash;&gt;-->
+												{% for i in range(25):%}
+												<input autocomplete="off" class="form-control shadow  "
+												       name="filter{{i}}"
+												       placeholder=0 step="0.0001" type="number"
+												       value=1>
+												{% endfor %}
 
-<!--			&lt;!&ndash;                <div class="swiper-slide d-flex flex-column justify-content-center align-items-center">&ndash;&gt;-->
-<!--			&lt;!&ndash;&lt;!&ndash;&ndash;&gt;-->
-<!--			&lt;!&ndash;                    <h5 class="p-1">Step 2: Apply custom matrix filter on the image</h5>&ndash;&gt;-->
-<!--			&lt;!&ndash;&ndash;&gt;&ndash;&gt;-->
+											</div>
+										</div>
+									</div>
 
-<!--			&lt;!&ndash;                        <div class="upload-div">&ndash;&gt;-->
-<!--			&lt;!&ndash;                            <div class="">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                <div class="form-check form-check-inline">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="single-channel-radio-btn" value="single" onclick="modeSelect();" checked>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                  <label class="form-check-label">Single Channel</label>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                <div class="form-check form-check-inline">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rgb-channel-radio-btn" value="rgb" onclick="modeSelect();">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                  <label class="form-check-label">RGB Channel</label>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                            </div>&ndash;&gt;-->
+									<div class="rgb-channel">
+										<div class="d-flex justify-content-center pt-3">
+											<div>
+												<!--<p class="m-0">Red Channel</p>-->
+												<div class="one-channel">
+													{% for i in range(9): %}
+													<input autocomplete="off"
+													       class="form-control shadow border-danger border-2"
+													       name="Rfilter{{i}}"
+													       step="0.0001" type="number"
+													       value=0>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+										<div class="d-flex justify-content-evenly py-3">
+											<div>
+												<!--<p class="m-0">Green Channel</p>-->
+												<div class="one-channel">
+													{% for i in range(9): %}
+													<input autocomplete="off"
+													       class="form-control shadow border-success border-2"
+													       name="Gfilter{{i}}"
+													       step="0.0001" type="number"
+													       value=0>
+													{% endfor %}
+												</div>
+											</div>
+											<div>
+												<!--<p class="m-0">Blue Channel</p>-->
+												<div class="one-channel">
+													{% for i in range(9): %}
+													<input autocomplete="off"
+													       class="form-control shadow border-primary border-2"
+													       name="Bfilter{{i}}"
+													       step="0.0001" type="number"
+													       value=0>
+													{% endfor %}
+												</div>
+											</div>
+										</div>
 
-<!--			&lt;!&ndash;                            <div class="filter-coefs">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                <div class="single-channel">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                    <div class="d-flex justify-content-center py-3">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                        <div class="combined-channel">&ndash;&gt;-->
-
-<!--			&lt;!&ndash;                                            {% for i in range(25):%}&ndash;&gt;-->
-<!--			&lt;!&ndash;                                                <input name="filter{{i}}" type="number" step="0.0001" class="form-control shadow  " autocomplete="off" placeholder=0 value=1>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                            {% endfor %}&ndash;&gt;-->
-
-<!--			&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                </div>&ndash;&gt;-->
-
-<!--			&lt;!&ndash;                                <div class="rgb-channel">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                    <div class="d-flex justify-content-center pt-3">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                            &lt;!&ndash;<p class="m-0">Red Channel</p>&ndash;&gt;&ndash;&gt;-->
-<!--			&lt;!&ndash;                                            <div class="one-channel">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                                {% for i in range(9): %}&ndash;&gt;-->
-<!--			&lt;!&ndash;                                                    <input name="Rfilter{{i}}" type="number" step="0.0001" class="form-control shadow border-danger" autocomplete="off" value=0>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                                {% endfor %}&ndash;&gt;-->
-<!--			&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                    </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                    <div class="d-flex justify-content-evenly py-3">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                            &lt;!&ndash;<p class="m-0">Green Channel</p>&ndash;&gt;&ndash;&gt;-->
-<!--			&lt;!&ndash;                                            <div class="one-channel">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                                {% for i in range(9): %}&ndash;&gt;-->
-<!--			&lt;!&ndash;                                                    <input name="Gfilter{{i}}" type="number" step="0.0001" class="form-control shadow border-success" autocomplete="off" value=0>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                                {% endfor %}&ndash;&gt;-->
-<!--			&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                        <div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                            &lt;!&ndash;<p class="m-0">Blue Channel</p>&ndash;&gt;&ndash;&gt;-->
-<!--			&lt;!&ndash;                                            <div class="one-channel">&ndash;&gt;-->
-<!--			&lt;!&ndash;                                                {% for i in range(9): %}&ndash;&gt;-->
-<!--			&lt;!&ndash;                                                    <input name="Bfilter{{i}}" type="number" step="0.0001" class="form-control shadow border-primary" autocomplete="off" value=0>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                                {% endfor %}&ndash;&gt;-->
-<!--			&lt;!&ndash;                                            </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                        </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                                    </div>&ndash;&gt;-->
-
-<!--			&lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                        &lt;!&ndash;<button type="submit" class="btn btn-dark" id="submit_form">Convert</button>&ndash;&gt;&ndash;&gt;-->
-
-<!--			&lt;!&ndash;                </div>&ndash;&gt;-->
-
-<!--			&lt;!&ndash;                <div class="swiper-slide d-flex flex-column align-items-center justify-content-center">&ndash;&gt;-->
-<!--			&lt;!&ndash;&lt;!&ndash;&ndash;&gt;-->
-<!--			&lt;!&ndash;                    <h5 class="p-1">Step 3: Final filtered Image</h5>&ndash;&gt;-->
-<!--			&lt;!&ndash;&ndash;&gt;&ndash;&gt;-->
-
-<!--			&lt;!&ndash;                    {% if filter_img_data %}&ndash;&gt;-->
-
-<!--			&lt;!&ndash;                    {% else %}&ndash;&gt;-->
-<!--			&lt;!&ndash;                        <div class="img-loader my-3" >&ndash;&gt;-->
-<!--			&lt;!&ndash;                            <button type="submit" class="btn btn-dark" id="submit_form">Convert</button>&ndash;&gt;-->
-<!--			&lt;!&ndash;                            <div class="loading-square mx-auto" >&ndash;&gt;-->
-<!--			&lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;                    {% endif %}&ndash;&gt;-->
-
-<!--			&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;            </div>&ndash;&gt;-->
-<!--			&lt;!&ndash;        </div>&ndash;&gt;-->
-<!--			<div class="carousel carousel-dark slide" data-bs-ride="carousel" id="carouselExampleIndicators">-->
-<!--				<div class="carousel-indicators">-->
-<!--					<button aria-current="true" aria-label="Slide 1" class="active"-->
-<!--					        data-bs-slide-to="0" data-bs-target="#carouselExampleIndicators" type="button"></button>-->
-<!--					<button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleIndicators"-->
-<!--					        type="button"></button>-->
-<!--					<button aria-label="Slide 3" data-bs-slide-to="2" data-bs-target="#carouselExampleIndicators"-->
-<!--					        type="button"></button>-->
-<!--				</div>-->
-<!--				<div class="carousel-inner">-->
-<!--					<div class="carousel-item active">-->
-<!--						<div class="img-div d-flex flex-column justify-content-center align-items-center">-->
-<!--							<div class="before-img-load">-->
-<!--								<i class="fas fa-upload fs-1 p-2"></i>-->
-<!--								<p>Drag or drop your image here</p>-->
-<!--								<p>Or</p>-->
-<!--								<div class="img-input-div">-->
-<!--									<input class="btn btn-dark rounded-pill" id="img_file" name="image" type="file">-->
-<!--									Browse Files-->
-<!--								</div>-->
-<!--							</div>-->
-<!--							<div class="loader-bar">-->
-<!--								<div class="loader"></div>-->
-<!--							</div>-->
-<!--							<div class="after-img-load">-->
-<!--								<img alt="" class="" id="show_img"/>-->
-<!--								<i class="fas fa-times-circle"></i>-->
-<!--							</div>-->
-
-<!--						</div>-->
-<!--					</div>-->
-<!--					<div class="carousel-item">-->
-<!--						<div class="upload-div">-->
-<!--							<div class="">-->
-<!--								<div class="form-check form-check-inline">-->
-<!--									<input checked class="form-check-input" id="single-channel-radio-btn"-->
-<!--									       name="inlineRadioOptions" onclick="modeSelect();" type="radio"-->
-<!--									       value="single">-->
-<!--									<label class="form-check-label">Single Channel</label>-->
-<!--								</div>-->
-<!--								<div class="form-check form-check-inline">-->
-<!--									<input class="form-check-input" id="rgb-channel-radio-btn" name="inlineRadioOptions"-->
-<!--									       onclick="modeSelect();" type="radio" value="rgb">-->
-<!--									<label class="form-check-label">RGB Channel</label>-->
-<!--								</div>-->
-<!--							</div>-->
-
-<!--							<div class="filter-coefs">-->
-<!--								<div class="single-channel">-->
-<!--									<div class="d-flex justify-content-center py-3">-->
-<!--										<div class="combined-channel">-->
-
-<!--											{% for i in range(25):%}-->
-<!--											<input autocomplete="off" class="form-control shadow  " name="filter{{i}}"-->
-<!--											       placeholder=0 step="0.0001" type="number"-->
-<!--											       value=1>-->
-<!--											{% endfor %}-->
-
-<!--										</div>-->
-<!--									</div>-->
-<!--								</div>-->
-
-<!--								<div class="rgb-channel">-->
-<!--									<div class="d-flex justify-content-center pt-3">-->
-<!--										<div>-->
-<!--											&lt;!&ndash;<p class="m-0">Red Channel</p>&ndash;&gt;-->
-<!--											<div class="one-channel">-->
-<!--												{% for i in range(9): %}-->
-<!--												<input autocomplete="off" class="form-control shadow border-danger"-->
-<!--												       name="Rfilter{{i}}"-->
-<!--												       step="0.0001" type="number"-->
-<!--												       value=0>-->
-<!--												{% endfor %}-->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
-<!--									<div class="d-flex justify-content-evenly py-3">-->
-<!--										<div>-->
-<!--											&lt;!&ndash;<p class="m-0">Green Channel</p>&ndash;&gt;-->
-<!--											<div class="one-channel">-->
-<!--												{% for i in range(9): %}-->
-<!--												<input autocomplete="off" class="form-control shadow border-success"-->
-<!--												       name="Gfilter{{i}}"-->
-<!--												       step="0.0001" type="number"-->
-<!--												       value=0>-->
-<!--												{% endfor %}-->
-<!--											</div>-->
-<!--										</div>-->
-<!--										<div>-->
-<!--											&lt;!&ndash;<p class="m-0">Blue Channel</p>&ndash;&gt;-->
-<!--											<div class="one-channel">-->
-<!--												{% for i in range(9): %}-->
-<!--												<input autocomplete="off" class="form-control shadow border-primary"-->
-<!--												       name="Bfilter{{i}}"-->
-<!--												       step="0.0001" type="number"-->
-<!--												       value=0>-->
-<!--												{% endfor %}-->
-<!--											</div>-->
-<!--										</div>-->
-<!--									</div>-->
-
-<!--								</div>-->
-<!--							</div>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--					<div class="carousel-item">-->
-
-<!--						<div class="img-loader my-3">-->
-<!--							<button class="btn btn-dark" id="submit_form" type="submit">Convert</button>-->
-<!--							<div class="loading-square mx-auto">-->
-<!--							</div>-->
-<!--						</div>-->
-
-<!--					</div>-->
-<!--				</div>-->
-<!--				<button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleIndicators"-->
-<!--				        type="button">-->
-<!--					<span aria-hidden="true" class="carousel-control-prev-icon"></span>-->
-<!--					<span class="visually-hidden">Previous</span>-->
-<!--				</button>-->
-<!--				<button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleIndicators"-->
-<!--				        type="button">-->
-<!--					<span aria-hidden="true" class="carousel-control-next-icon"></span>-->
-<!--					<span class="visually-hidden">Next</span>-->
-<!--				</button>-->
-<!--			</div>-->
-<!--		</form>-->
-<!--	</div>-->
-
-<!--	<div class="col-md-5 col-12">-->
-<!--		<p>Step 1:</p>-->
-<!--		<p>Upload an image (only .png, .jpg, .jpeg) </p>-->
-<!--	</div>-->
-
-<!--	{% if filter_img_data %}-->
-<!--	<div class="mx-5 py-5 text-center">-->
-<!--		<div class="img-mix">-->
-<!--			<div class="img-mix-wrapper">-->
-<!--				<div class="img-org">-->
-<!--					<img alt="" class="org-img" src="data:image/jpg;base64, {{img_data}}"/>-->
-<!--				</div>-->
-<!--				<div class="img-final">-->
-<!--					<img alt="" class="" id="result-img" src="data:image/jpg;base64, {{filter_img_data}}"/>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-
-<!--		<input class="form-range img-comp-slider mt-2" onchange="reveal();" type="range">-->
-<!--	</div>-->
-
-<!--	{% endif %}-->
-
-<!--	<form action="/" class="text-center" method="GET">-->
-<!--		<button class="btn btn-dark reset-btn" type="submit">Reset</button>-->
-<!--	</form>-->
-
-<!--</div>-->
-
-<div class="container-fluid row mx-auto">
-	<div class="col-lg-7">
-		<div class="d-flex justify-content-center align-items-center h-100">
-			<!-- If we need navigation buttons -->
-			<div class="swiper-button-custom-prev"><i class="fas fa-arrow-left"></i></div>
-
-			<!-- Slider main container -->
-			<div class="swiper Swiper-Main">
-				<!-- Additional required wrapper -->
-				<div class="swiper-wrapper">
-					<!-- Slides -->
-					<div class="swiper-slide p-3">
-						Slide 01
-						<!--				   <div class="img-div d-flex flex-column justify-content-center align-items-center">-->
-						<!--					   <div class="before-img-load">-->
-						<!--						   <i class="fas fa-upload fs-1 p-2"></i>-->
-						<!--						   <p>Drag or drop your image here</p>-->
-						<!--						   <p>Or</p>-->
-						<!--						   <div class="img-input-div">-->
-						<!--							   <input class="btn btn-dark rounded-pill" id="img_file" name="image" type="file">-->
-						<!--							   Browse Files-->
-						<!--						   </div>-->
-						<!--					   </div>-->
-						<!--					   <div class="loader-bar">-->
-						<!--						   <div class="loader"></div>-->
-						<!--					   </div>-->
-						<!--					   <div class="after-img-load">-->
-						<!--						   <img alt="" class="" id="show_img"/>-->
-						<!--						   <i class="fas fa-times-circle"></i>-->
-						<!--					   </div>-->
-						<!--				   </div>-->
-
-
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide p-4">
+							{% if filter_img_data %}
+							{% else %}
+							<div class="img-loader">
+								<button class="btn btn-dark" id="submit_form" type="submit">Convert</button>
+								<div class="loading-square mx-auto">
+								</div>
+							</div>
+							{% endif %}
+						</div>
 					</div>
-					<div class="swiper-slide p-3">Slide 02</div>
-					<div class="swiper-slide p-3">Slide 03</div>
+
+					<!-- If we need pagination -->
+					<div class="swiper-pagination"></div>
 				</div>
 
-				<!-- If we need pagination -->
-				<div class="swiper-pagination"></div>
-			</div>
+				<!-- If we need navigation buttons -->
+				<div class="swiper-button-custom-next"><i class="fas fa-arrow-right"></i></div>
 
-			<!-- If we need navigation buttons -->
-			<div class="swiper-button-custom-next"><i class="fas fa-arrow-right"></i></div>
-		</div>
-	</div>
-	<div class="col-lg-5">
-		<div class="bg-light p-4 d-flex flex-column justify-content-center align-items-center"  style="font-family: 'Righteous', cursive;">
-			<h4 class="text-center p-3">How to apply Matrix filter on image?</h4>
-			<div>
-				<p class="m-0 p-1">Step 1: Upload an Image</p>
-				<p class="m-0 p-1">Step 2: Select filter type and fill matrix values</p>
-				<p class="m-0 p-1">Step 3: Click on Convert button</p>
 			</div>
-		</div>
+		</form>
 	</div>
 </div>
+<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+	<path d="M0,64L1440,224L1440,0L0,0Z" fill="#212529" fill-opacity="1"></path>
+</svg>
+{% if filter_img_data %}
+<div class="text-center">
+	<div class="img-mix">
+		<div class="img-mix-wrapper">
+			<div class="img-org">
+				<img alt="" class="org-img" src="data:image/jpg;base64, {{img_data}}"/>
+			</div>
+			<div class="img-final">
+				<img alt="" class="" id="result-img" src="data:image/jpg;base64, {{filter_img_data}}"/>
+			</div>
+		</div>
+	</div>
+
+	<input class="form-range img-comp-slider" oninput="reveal();" type="range">
+</div>
+
+{% endif %}
+
+<form action="/" class="text-center" method="GET">
+	<button class="btn btn-dark reset-btn" type="submit">Reset</button>
+</form>
 
 
-<div class="container-fluid row mx-auto">
-	<h2 class="text-center p-1 mb-0">Examples</h2>
+<div class="container-fluid row mx-auto p-0">
+	<h2 class="text-center pt-5 pb-2 mb-0">Examples</h2>
 	{% for item in data:%}
-	<div class="col-12 py-5">
-		<div class="swiper-container mySwiper mx-auto">
+	<div class="col-lg-6 col-md-12 py-5">
+		<div class="swiper-container mySwiper mx-auto p-2 border border-2">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide">
 					<img src={{item.img}}/>
 				</div>
-				<div class="swiper-slide bg-light">
+				<div class="swiper-slide bg-white text-dark">
 					<h5 class="text-center p-1">{{ item.name }}</h5>
-					{{ item.matrix }}
 					<p class="text-center px-4">
 						{{item.info}}
 					</p>
+				</div>
+				<div class="swiper-slide bg-white">
+					<div class="overflow-hidden">
+						{{ item.matrix }}
+					</div>
 				</div>
 			</div>
 			<div class="swiper-pagination"></div>
