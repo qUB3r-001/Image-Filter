@@ -131,10 +131,6 @@ h1, h2 {
     transform: scale(1);
   }
 }
-.demo-image, .demo-kernel, .demo-result {
-  transform: rotateY(35deg) rotateZ(0deg);
-}
-
 .demo-image {
   height: 214px;
   width: 214px;
@@ -569,6 +565,7 @@ input::-webkit-inner-spin-button {
 
 .mySwiper {
   width: 360px;
+  font-family: "Yomogi", cursive;
 }
 .mySwiper .swiper-wrapper .swiper-slide {
   height: auto;
@@ -576,7 +573,6 @@ input::-webkit-inner-spin-button {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-family: "Yomogi", cursive;
 }
 .mySwiper .swiper-wrapper .swiper-slide img {
   background-position: center;

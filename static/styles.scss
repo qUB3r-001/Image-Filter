@@ -141,7 +141,7 @@ h1, h2{
 }
 
 .demo-image, .demo-kernel, .demo-result{
-    transform: rotateY(35deg) rotateZ(0deg);
+
 }
 
 .demo-image{
@@ -591,6 +591,7 @@ input::-webkit-inner-spin-button {
 
  .mySwiper {
     width: 360px;
+    font-family: 'Yomogi', cursive;
 
     .swiper-wrapper {
         .swiper-slide {
@@ -599,7 +600,6 @@ input::-webkit-inner-spin-button {
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
-            font-family: 'Yomogi', cursive;
 
             img {
                 background-position: center;

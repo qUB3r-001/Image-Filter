@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="fixed slider js (custom made)">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="413d405f-b373-4a3b-b9e2-742f15fae3cb" name="Default Changelist" comment="Layout, fonts, theme finalized and footer added">
+      <change afterPath="$PROJECT_DIR$/static/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/filter10_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/filter1_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/filter2_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/filter3_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/filter4_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/filter5_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/filter6_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/filter7_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/filter8_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/filter9_img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/styles.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles.css.map" afterDir="false" />
@@ -217,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635271909084</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Layout, fonts, theme finalized and footer added">
+      <created>1635544479129</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1635544479129</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -268,7 +284,8 @@
     <MESSAGE value="new image animation done, (result animation left)" />
     <MESSAGE value="animation completed, image upload slider fixed" />
     <MESSAGE value="fixed slider js (custom made)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed slider js (custom made)" />
+    <MESSAGE value="Layout, fonts, theme finalized and footer added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Layout, fonts, theme finalized and footer added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
