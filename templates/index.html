@@ -7,56 +7,84 @@
 
 
 	<div class="p-2" style="font-family: 'Yomogi', cursive;">
-		<h5 class="text-center mb-0">Matrix based filters on Image</h5>
 		<div class="row mx-auto px-0">
-			<div class="col-lg-3 col-md-12 p-4 ">
-				It is a long established fact that a reader will be distracted by the readable content of a page when
-				looking at its layout.
+			<div class="col-lg-3 col-md-12 p-4">
+				<strong>Image</strong>
+				is an Array, or a matrix, of square pixels arranged in columns and rows. A 24 bit image (True color
+				image)
+				is an image where each pixel is represented by three 8 bit quantities (thus, total 24 bit color depth)
+				specfiying
+				intensities of R(red), G(green) & B(blue) colors.
 				$$
-				I \otimes K = R
+				Image: I[x,y] = \begin{bmatrix}
+				r(x,y) \\
+				g(x,y) \\
+				b(x,y) \\
+				\end{bmatrix}
 				$$
-				The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-				of
-				letters, as opposed to using 'Content here, content here', making it look like readable English. Many
-				desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a
-				search for 'lorem ipsum' will uncover many web sites still in their infancy.
+				<strong>Kernel</strong>
+				is a matrix (usually 3x3 or 5x5 2D matrix) used to apply different effects on images. This is
+				accomplished by convolution operation between kernel and image<br/>
+				*Cross-correlation and Convolution are both operations applied to images. The key difference is that
+				kernel is flipped (transposed kernel matrix) in convolution operation.
 			</div>
-			<div class="demo-div d-flex justify-content-evenly align-items-center col-lg-6 col-md-12 p-5"
+			<div class="demo-div d-flex flex-column flex-column-reverse justify-content-evenly align-items-center col-lg-6 col-md-12"
 			     style="perspective: 500px;">
-				<!--				<div class="demo-kernel">-->
-				<!--					<div class="demo-kernel-div">-->
-				<!--						{% for i in range(9): %}-->
-				<!--						<div class="kernel-pixel" style="background-color: hsl(0,0%,{{80-i}}%);"></div>-->
-				<!--						{% endfor %}-->
-				<!--					</div>-->
-				<!--				</div>-->
+
 				<div class="demo-image">
 					<div class="demo-image-div">
 						{% for i in range(49): %}
 						<div class="img-pixel" style="background-color: hsl(0,0%,{{ demo_img_array[i]}}%);"></div>
 						{% endfor %}
-						<div class="focus-image"></div>
+						<div class="focus-image">
+							<p class="text-end mb-0 position-absolute top-100 end-0 text-warning">Window</p>
+						</div>
 					</div>
-				</div>
-				<!--			<div class="circle-to">⊗</div>-->
-				<!--			<div class="equal-to">=</div>-->
-				<div class="demo-result">
-					<div class="demo-result-div">
-						{% for i in range(25): %}
-						<div class="result-pixel" style="background-color: hsl(0,0%,{{demo_result_array[i]}}%);"></div>
-						{% endfor %}
-						<div class="focus-result"></div>
+					<div class="demo-kernel d-flex justify-content-center align-items-center">
+						<div>
+							<div class="demo-kernel-div">
+								{% for i in range(9): %}
+								<div class="kernel-pixel" style="background-color: hsl(0,0%,{{80-i}}%);"></div>
+								{% endfor %}
+								<p class="text-end mb-0 position-absolute top-50 start-50 translate-middle">Kernel</p>
+							</div>
+						</div>
 					</div>
+					<p class="text-end mb-0">Original Image<br/> with padding</p>
 				</div>
 
+				<div class="demo-result d-flex justify-content-center align-items-center">
+					<div>
+						<div class="demo-result-div">
+							{% for i in range(25): %}
+							<div class="result-pixel"
+							     style="background-color: hsl(0,0%,{{demo_result_array[i]}}%);"></div>
+							{% endfor %}
+							<div class="focus-result"></div>
+						</div>
+						<p class="text-end mb-0">Filtered Image</p>
+					</div>
+				</div>
+				<h5 class="text-center mb-0">Convolution operation between Image and Kernel</h5>
 			</div>
 			<div class="col-lg-3 col-md-12 p-4">
-				It is a long established fact that a reader will be distracted by the readable content of a page when
-				looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-				of
-				letters, as opposed to using 'Content here, content here', making it look like readable English. Many
-				desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a
-				search for 'lorem ipsum' will uncover many web sites still in their infancy.
+				<strong>Convolution</strong>
+				operation in Image Processing is defined as element wise matrix multiplication (Hadamard Product) of
+				Kernel and Image(sub matrix of equal dimensions as kernel) with a fixed stride to compute resultant
+				Pixel values of Filtered image.<br/>
+				$$
+				\begin{align}
+				A_{n,m} * B_{n,m} & = \sum_{i=0}^n\sum_{j=0}^m a(i,j).b(i,j) \\
+				& = C_{n,m}
+				\end{align}
+				$$
+				<p class="text-center">Hadamard product or Element wise matrix multiplication</p>
+				So, the Hadamard product between Kernel and sub matrices of Image (window) is
+				performed and sum of all elements of the resultant matrix gives the corresponding pixel of Filtered
+				image. This complete process is called Convolution.<br/>
+				*For 24 bit images, convolution is done with all three channels respectively (RGB) to calculate the
+				resultant
+				pixel value of the filtered image.
 			</div>
 		</div>
 	</div>
@@ -124,7 +152,9 @@
 	<!--<a class="text-center p-3 m-0 text-dark slider-btn"></a>-->
 </div>
 <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
-	<path d="M0,256L1440,64L1440,320L0,320Z" fill="#212529" fill-opacity="1"></path>
+	<path d="M0,128L48,160C96,192,192,256,288,250.7C384,245,480,171,576,149.3C672,128,768,160,864,181.3C960,203,1056,213,1152,192C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+	      fill="#212529"
+	      fill-opacity="1"></path>
 </svg>
 <div class="container-fluid row mx-auto p-3 bg-dark text-white hide-after-result">
 	<div class="col-xl-5 col-md-12 p-0">
@@ -132,16 +162,16 @@
 		     style="font-family: 'Yomogi', cursive;">
 			<h4 class="text-center p-3">How to apply Matrix filter on image?</h4>
 			<div class="steps-apply-filter">
-				<p class="m-0 p-3 bg-white text-dark"><i class="fas fa-exclamation-triangle"></i> Step 1: Upload an Image</p>
-				<p class="m-0 p-3"><i class="fas fa-exclamation-triangle"></i> Step 2: Select filter type and fill matrix values</p>
-				<p class="m-0 p-3"><i class="fas fa-exclamation-triangle"></i> Step 3: Click on Convert button</p>
+				<p class="m-0 p-3 bg-white text-dark">Step 1: Upload an Image</p>
+				<p class="m-0 p-3">Step 2: Select filter type and fill matrix values</p>
+				<p class="m-0 p-3">Step 3: Click on Convert button</p>
 			</div>
 		</div>
 	</div>
 	<div class="col-xl-7 col-md-12 p-0 bg-white">
 		<form action="/filtered" enctype="multipart/form-data" id="filter_form"
 		      method="POST">
-			<div class="d-flex justify-content-center align-items-center h-100 p-1">
+			<div class="d-flex justify-content-center align-items-center h-100 p-lg-1 p-md-0">
 
 				<!-- If we need navigation buttons -->
 				<div class="swiper-button-custom-prev"><i class="fas fa-arrow-left"></i></div>
@@ -172,42 +202,32 @@
 							</div>
 						</div>
 						<div class="swiper-slide p-4">
+							<div class="form-check form-switch ps-0 d-flex">
+								<input class="form-check-input ms-0" id="flexSwitchCheckDefault"
+								       name="channel-mode-check" type="checkbox">
+								<span class="form-check-label px-2">Single Channel</span>
+							</div>
 							<div class="upload-div">
-								<div class="">
-									<div class="form-check form-check-inline">
-										<input checked class="form-check-input" id="single-channel-radio-btn"
-										       name="inlineRadioOptions" onclick="modeSelect();" type="radio"
-										       value="single">
-										<label class="form-check-label">Single Channel</label>
-									</div>
-									<div class="form-check form-check-inline">
-										<input class="form-check-input" id="rgb-channel-radio-btn"
-										       name="inlineRadioOptions"
-										       onclick="modeSelect();" type="radio" value="rgb">
-										<label class="form-check-label">RGB Channel</label>
-									</div>
-								</div>
-
 								<div class="filter-coefs">
 									<div class="single-channel">
-										<div class="d-flex justify-content-center py-3">
+										<div class="d-flex flex-column justify-content-center align-items-center py-3">
 											<div class="combined-channel">
-
 												{% for i in range(25):%}
-												<input autocomplete="off" class="form-control shadow  "
-												       name="filter{{i}}"
-												       placeholder=0 step="0.0001" type="number"
+												<input autocomplete="off" class="form-control shadow"
+												       name="filter{{i}}" step="0.0001" type="number"
 												       value=1>
 												{% endfor %}
-
 											</div>
+											<input autocomplete="off" class="form-control shadow mt-2"
+											       name="factor"
+											       step="0.0001" style="height: 40px; width: 40px;" type="number"
+											       value=25>
 										</div>
 									</div>
 
 									<div class="rgb-channel">
-										<div class="d-flex justify-content-center pt-3">
-											<div>
-												<!--<p class="m-0">Red Channel</p>-->
+										<div class="d-flex justify-content-center">
+											<div class="d-flex flex-column justify-content-center align-items-center">
 												<div class="one-channel">
 													{% for i in range(9): %}
 													<input autocomplete="off"
@@ -217,11 +237,15 @@
 													       value=0>
 													{% endfor %}
 												</div>
+												<input autocomplete="off"
+												       class="form-control shadow border-danger border-2"
+												       name="factorR"
+												       step="0.0001" style="height: 30px; width: 30px;" type="number"
+												       value=1>
 											</div>
 										</div>
-										<div class="d-flex justify-content-evenly py-3">
-											<div>
-												<!--<p class="m-0">Green Channel</p>-->
+										<div class="d-flex justify-content-evenly">
+											<div class="d-flex flex-column justify-content-center align-items-center">
 												<div class="one-channel">
 													{% for i in range(9): %}
 													<input autocomplete="off"
@@ -231,9 +255,13 @@
 													       value=0>
 													{% endfor %}
 												</div>
+												<input autocomplete="off"
+												       class="form-control border-success border-2 shadow"
+												       name="factorG"
+												       step="0.0001" style="height: 30px; width: 30px;" type="number"
+												       value=1>
 											</div>
-											<div>
-												<!--<p class="m-0">Blue Channel</p>-->
+											<div class="d-flex flex-column justify-content-center align-items-center">
 												<div class="one-channel">
 													{% for i in range(9): %}
 													<input autocomplete="off"
@@ -243,6 +271,11 @@
 													       value=0>
 													{% endfor %}
 												</div>
+												<input autocomplete="off"
+												       class="form-control shadow border-primary border-2"
+												       name="factorB"
+												       step="0.0001" style="height: 30px; width: 30px;" type="number"
+												       value=1>
 											</div>
 										</div>
 
@@ -273,12 +306,12 @@
 		</form>
 	</div>
 </div>
-<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
-	<path d="M0,64L1440,224L1440,0L0,0Z" fill="#212529" fill-opacity="1"></path>
-</svg>
 {% if filter_img_data %}
-<div class="text-center">
-	<div class="img-mix">
+<div class="text-center p-4 bg-dark d-flex justify-content-center">
+	<div class="img-mix bg-white text-dark p-2 rounded">
+		<h4 class="text-center mb-0 p-1" style="font-family: 'Yomogi', cursive;">Filtered Image</h4>
+		<p class="text-center mb-0 p-1" style="font-family: 'Yomogi', cursive;">Drag slider to compare between original
+			and filtered image</p>
 		<div class="img-mix-wrapper">
 			<div class="img-org">
 				<img alt="" class="org-img" src="data:image/jpg;base64, {{img_data}}"/>
@@ -287,16 +320,21 @@
 				<img alt="" class="" id="result-img" src="data:image/jpg;base64, {{filter_img_data}}"/>
 			</div>
 		</div>
+		<input class="form-range btn btn-light img-comp-slider p-0" oninput="reveal();" type="range">
+		<form action="/" class="text-center" method="GET" style="font-family: 'Yomogi', cursive;">
+			<button class="btn btn-dark reset-btn" type="submit">Reset</button>
+		</form>
 	</div>
 
-	<input class="form-range img-comp-slider" oninput="reveal();" type="range">
+
 </div>
 
 {% endif %}
-
-<form action="/" class="text-center" method="GET">
-	<button class="btn btn-dark reset-btn" type="submit">Reset</button>
-</form>
+<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+	<path d="M0,128L48,160C96,192,192,256,288,250.7C384,245,480,171,576,149.3C672,128,768,160,864,181.3C960,203,1056,213,1152,192C1248,171,1344,117,1392,90.7L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+	      fill="#212529"
+	      fill-opacity="1"></path>
+</svg>
 
 
 <div class="container-fluid row mx-auto p-0">

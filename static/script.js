@@ -9,18 +9,7 @@ function preview(input){
 }
 
 function modeSelect(){
-    if($("#single-channel-radio-btn").is(':checked')){
-        $(".single-channel").show();
-        $(".rgb-channel").hide();
-        $(".rgb-channel input").prop('disabled', true);
-        $(".single-channel input").prop('disabled', false);
-    }
-    else{
-        $(".single-channel").hide();
-        $(".rgb-channel").show();
-        $(".rgb-channel input").prop('disabled', false);
-        $(".single-channel input").prop('disabled', true);
-    }
+
 }
 
 function reveal(){
@@ -106,10 +95,10 @@ $(function(){
 
       swiper_final.on('slideChange', function () {
         for (let i=0; i<3; i++){
-            if(i === swiper_final.activeIndex) $(`.steps-apply-filter p:nth-of-type(${i+1})`).addClass("bg-white text-dark");
-            else $(`.steps-apply-filter p:nth-of-type(${i+1})`).removeClass("bg-white text-dark");
+            if(i < swiper_final.activeIndex) $(`.steps-apply-filter p:nth-of-type(${i+1})`).addClass("text-decoration-line-through").removeClass("bg-white text-dark");
+            if(i === swiper_final.activeIndex) $(`.steps-apply-filter p:nth-of-type(${i+1})`).addClass("bg-white text-dark").removeClass("text-decoration-line-through");
+            if(i > swiper_final.activeIndex) $(`.steps-apply-filter p:nth-of-type(${i+1})`).removeClass("bg-white text-dark text-decoration-line-through");
         }
-//        console.log(swiper_final.activeIndex);
       });
 
 //    swiper_final.on('beforeInit', function () {
@@ -127,8 +116,27 @@ $(function(){
         //$("#img_file").hide();
     });
 
+    $("#flexSwitchCheckDefault").change(function(){
+           if($(this).is(':checked')){
+           $(".single-channel").hide();
+            $(".rgb-channel").show();
+            $(".rgb-channel input").prop('disabled', false);
+            $(".single-channel input").prop('disabled', true);
+            $(".form-check-label").text("RGB Channel");
+        }
+        else{
+          $(".single-channel").show();
+            $(".rgb-channel").hide();
+            $(".rgb-channel input").prop('disabled', true);
+            $(".single-channel input").prop('disabled', false);
+            $(".form-check-label").text("Single Channel");
+        }
+    });
+
+
     $("#filter_form").submit(function(){
         $("#submit_form").hide();
+        $(`.steps-apply-filter p:nth-of-type(${swiper_final.activeIndex + 1})`).addClass("text-decoration-line-through");
         $(".loading-square").show();
         $("#result-div").show();
 /*        swiper1.slideNext();*/

@@ -75,12 +75,14 @@ def image_upload():
         grn_arr = np.array(green)
         red_arr = np.array(red)
         blue_arr = np.array(blue)
-        if coef_dict['inlineRadioOptions'] == 'single':
-            filter_matrix = filter_matrix[1:]
+        # print(coef_dict)
+        if coef_dict.get('channel-mode-check') != 'on':
+            factor = int(filter_matrix[-1])
+            filter_matrix = filter_matrix[:-1]
             filter_matrix = np.array(filter_matrix, dtype=np.float32)
             filter_matrix = filter_matrix.reshape((5, 5))
-
-            print(filter_matrix)
+            filter_matrix = filter_matrix / factor
+            # print(filter_matrix)
             blur_g = cv2.filter2D(src=grn_arr, kernel=filter_matrix, ddepth=-1)
             out_green = Image.fromarray(blur_g, 'L')
 
@@ -93,12 +95,21 @@ def image_upload():
             filter_matrix_r = filter_matrix[1:10]
             filter_matrix_r = np.array(filter_matrix_r, dtype=np.float32)
             filter_matrix_r = filter_matrix_r.reshape((3, 3))
-            filter_matrix_g = filter_matrix[10:19]
+            factor_r = int(filter_matrix[10])
+            filter_matrix_r = filter_matrix_r / factor_r
+
+            filter_matrix_g = filter_matrix[11:20]
             filter_matrix_g = np.array(filter_matrix_g, dtype=np.float32)
             filter_matrix_g = filter_matrix_g.reshape((3, 3))
-            filter_matrix_b = filter_matrix[19:]
+            factor_g = int(filter_matrix[20])
+            filter_matrix_g = filter_matrix_g / factor_g
+
+            filter_matrix_b = filter_matrix[21:-1]
             filter_matrix_b = np.array(filter_matrix_b, dtype=np.float32)
             filter_matrix_b = filter_matrix_b.reshape((3, 3))
+            factor_b = int(filter_matrix[-1])
+            filter_matrix_b = filter_matrix_b / factor_b
+
             blur_g = cv2.filter2D(src=grn_arr, kernel=filter_matrix_g, ddepth=-1)
             out_green = Image.fromarray(blur_g, 'L')
 

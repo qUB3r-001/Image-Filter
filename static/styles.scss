@@ -17,6 +17,10 @@ html, body{
     height: 500px;
 }
 
+.form-check-input:checked{
+    background-color: #212529;
+}
+
 .swiper-button-custom-next, .swiper-button-custom-prev{
     display: grid;
     place-items: center;
@@ -140,14 +144,12 @@ h1, h2{
     }
 }
 
-.demo-image, .demo-kernel, .demo-result{
-
+.demo-image, .demo-result{
+    perspective: 500px;
+    transform: rotateX(35deg) rotateZ(-30deg);
 }
 
-.demo-image{
-    height: 214px;
-    width: 214px;
-}
+/**/
 
 .circle-to, .equal-to{
     height: 30px;
@@ -166,6 +168,7 @@ h1, h2{
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: auto;
     border: 2px solid hsl(0, 0%, 90%);
+    perspective: 500px;
 /*    grid-column-gap: 1px;
     grid-row-gap: 1px;*/
 }
@@ -235,6 +238,16 @@ h1, h2{
     z-index: 500;
 }
 
+.demo-result-div{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+/*    grid-column-gap: 1px;
+    grid-row-gap: 1px;*/
+}
 
 .demo-kernel-div{
     position: relative;
@@ -247,28 +260,30 @@ h1, h2{
     grid-row-gap: 1px;*/
 }
 
-.demo-result-div{
-    position: relative;
-    height: 150px;
-    width: 150px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
-/*    grid-column-gap: 1px;
-    grid-row-gap: 1px;*/
-}
-
-.focus-image{
+.focus-image, .demo-kernel{
     position: absolute;
     height: 90px;
     width: 90px;
     left: 0;
     top: 0 ;
-    border: 1px solid #FFC107;
-    box-shadow: 0 0 7px #FFC107;
     z-index: 999;
+    opacity: 0.8;
     animation: mover 10s steps(1) infinite;
     animation-delay: 1s;
+}
+
+.focus-image{
+    border: 1px solid #FFC107;
+    box-shadow: 0 0 7px #FFC107;
+}
+
+.demo-kernel{
+    border: 1px solid #212529;
+    box-shadow: 0 0 5px #212529;
+}
+
+.demo-kernel{
+    transform: translateZ(100px);
 }
 
 .focus-result{
@@ -338,6 +353,7 @@ h1, h2{
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     transform: rotateY(30deg) rotateZ(-5deg);
+    position: relative;
 }
 
 .demo-image-div-2{
@@ -512,7 +528,7 @@ h1, h2{
     margin: auto;
     width: 40px;
     height: 40px;
-    background-color: #4C4C4C;
+    background-color: #212529;
     animation: rotate 2s linear infinite;
 }
 
@@ -569,12 +585,13 @@ h1, h2{
 }
 
 .one-channel{
-    width: 120px;
+    width: 108px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-column-gap: 6px;
     grid-row-gap: 6px;
+    margin: 10px;
 }
 
 .rgb-channel input{
