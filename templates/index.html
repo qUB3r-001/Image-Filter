@@ -339,8 +339,22 @@
 
 <div class="container-fluid row mx-auto p-0">
 	<h2 class="text-center pt-5 pb-2 mb-0">Examples</h2>
+	<div class="col-12 py-3">
+		<div class="swiper-container mySwiper mx-auto p-2 border border-2">
+			<h5 class="text-center">Original Image</h5>
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img src=static/images/rgbimg.jpg>
+					<p class="text-center p-2">
+						This image is selected to explicitly highlight the affect of different kernels on a Image and to
+						make visual comparison easier.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	{% for item in data:%}
-	<div class="col-lg-6 col-md-12 py-5">
+	<div class="col-xl-4 col-lg-6 col-md-12 py-5 mx-auto">
 		<div class="swiper-container mySwiper mx-auto p-2 border border-2">
 			<h5 class="text-center">{{ item.name }}</h5>
 			<div class="swiper-wrapper">
@@ -348,17 +362,24 @@
 					<img src={{item.img}}/>
 				</div>
 				<div class="swiper-slide bg-white text-dark">
-					<p class="text-center px-4">
+					<p class="text-center px-2">
 						{{item.info}}
 					</p>
 				</div>
 				<div class="swiper-slide bg-white">
 					<div class="overflow-hidden">
 						{{ item.matrix }}
+						{% if loop.index > 8:%}
+						<p class="position-absolute bottom-0 w-100 start-0 mb-1 text-center" style="font-size: 13px;">
+							Higher order Kernel of size 35
+							is used for the final image to make the
+							effect noticeable.</p>
+						{% endif %}
 					</div>
 				</div>
 			</div>
-			<div class="swiper-pagination"></div>
+			<div class=" swiper-pagination">
+			</div>
 		</div>
 	</div>
 	{% endfor %}

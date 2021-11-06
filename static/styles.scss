@@ -268,7 +268,7 @@ h1, h2{
     top: 0 ;
     z-index: 999;
     opacity: 0.8;
-    animation: mover 10s steps(1) infinite;
+    animation: mover 25s steps(1) infinite;
     animation-delay: 1s;
 }
 
@@ -294,50 +294,19 @@ h1, h2{
     top: 0;
     border: 2px solid #19D3DA;
     box-shadow: 0 0 7px #19D3DA;
-    animation: mover 10s steps(1) infinite;
+    animation: mover 25s steps(1) infinite;
     animation-delay: 1s;
 }
 
 @keyframes mover{
-    10%{
-        top: 0;
-        left: 30px;
-    }
-    20%{
-        top: 0;
-        left: 60px;
-    }
-    30%{
-        top: 0;
-        left: 90px;
-    }
-    40%{
-        top: 0;
-        left: 120px;
-    }
-    50%{
-        left: 0;
-        top: 30px;
-    }
-    60%{
-        left: 30px;
-        top: 30px;
-    }
-    70%{
-        left: 60px;
-        top: 30px;
-    }
-    80%{
-        left: 90px;
-        top: 30px;
-    }
-    90%{
-        left: 120px;
-        top: 30px;
-    }
-    100%{
-        left: 0;
-        top: 60px;
+    @for $i from 0 through 4{
+        @for $j from 0 through 4{
+            $percentage: (5*$i+$j)*4;
+            #{$percentage}%{
+                left: ($j%5)*30px;
+                top: ($i%5)*30px;
+            }
+        }
     }
 }
 
@@ -495,12 +464,12 @@ h1, h2{
 }
 
 .img-mix img{
-    height: 300px;
+    height: 400px;
 }
 
 .img-mix-wrapper{
     position: relative;
-    height: 300px;
+    height: 400px;
     width: auto;
     overflow: hidden;
 }
@@ -666,5 +635,9 @@ input::-webkit-inner-spin-button {
 
     .mySwiper{
         width: 300px;
+    }
+
+    .swiper-button-custom-next, .swiper-button-custom-prev{
+        padding: 0;
     }
 }

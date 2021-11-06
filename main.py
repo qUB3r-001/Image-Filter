@@ -13,7 +13,7 @@ from data import DICT
 # DEMO_RESULT_ARRAY = [77, 40, 58, 66, 50, 82, 69, 87, 49, 78, 56, 47, 61, 60, 55, 83, 62, 53, 49, 64, 41, 42, 68,
 # 57, 58]
 DEMO_RESULT_ARRAY = [randint(40, 90) for i in range(25)]
-DEMO_IMG_ARRAY = [50 - i for i in range(25)]
+DEMO_IMG_ARRAY = [80-2*i for i in range(25)]
 DEMO_IMG_ARRAY = np.reshape(DEMO_IMG_ARRAY, (5, 5))
 DEMO_IMG_ARRAY = np.pad(DEMO_IMG_ARRAY, ((1, 1), (1, 1)), 'constant', constant_values=255)
 DEMO_IMG_ARRAY = DEMO_IMG_ARRAY.flatten()
@@ -60,7 +60,7 @@ def image_upload():
     for key in coef_dict:
         filter_matrix.append(coef_dict[key])
     img = request.files.get('image')
-    print(img)
+    # print(img)
     if img and allowed_file(img.filename):
         data = io.BytesIO()
         img.save(data)
@@ -71,11 +71,16 @@ def image_upload():
         resized_width = width - width % 15
         resized_height = height - height % 15
         up_img = up_img.resize((resized_width, resized_height), Image.ANTIALIAS)
-        red, green, blue = up_img.split()
-        grn_arr = np.array(green)
-        red_arr = np.array(red)
-        blue_arr = np.array(blue)
-        # print(coef_dict)
+
+        if up_img.mode == 'RGB':
+            red_arr = np.array(up_img)[:, :, 0]
+            grn_arr = np.array(up_img)[:, :, 1]
+            blue_arr = np.array(up_img)[:, :, 2]
+        else:
+            red_arr = np.array(up_img)[:, :]
+            grn_arr = np.array(up_img)[:, :]
+            blue_arr = np.array(up_img)[:, :]
+
         if coef_dict.get('channel-mode-check') != 'on':
             factor = int(filter_matrix[-1])
             filter_matrix = filter_matrix[:-1]

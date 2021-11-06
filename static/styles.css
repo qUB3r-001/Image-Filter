@@ -257,7 +257,7 @@ h1, h2 {
   top: 0;
   z-index: 999;
   opacity: 0.8;
-  animation: mover 10s steps(1) infinite;
+  animation: mover 25s steps(1) infinite;
   animation-delay: 1s;
 }
 
@@ -283,50 +283,110 @@ h1, h2 {
   top: 0;
   border: 2px solid #19D3DA;
   box-shadow: 0 0 7px #19D3DA;
-  animation: mover 10s steps(1) infinite;
+  animation: mover 25s steps(1) infinite;
   animation-delay: 1s;
 }
 
 @keyframes mover {
-  10% {
-    top: 0;
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  4% {
     left: 30px;
+    top: 0px;
+  }
+  8% {
+    left: 60px;
+    top: 0px;
+  }
+  12% {
+    left: 90px;
+    top: 0px;
+  }
+  16% {
+    left: 120px;
+    top: 0px;
   }
   20% {
-    top: 0;
-    left: 60px;
-  }
-  30% {
-    top: 0;
-    left: 90px;
-  }
-  40% {
-    top: 0;
-    left: 120px;
-  }
-  50% {
-    left: 0;
+    left: 0px;
     top: 30px;
   }
-  60% {
+  24% {
     left: 30px;
     top: 30px;
   }
-  70% {
+  28% {
     left: 60px;
     top: 30px;
   }
-  80% {
+  32% {
     left: 90px;
     top: 30px;
   }
-  90% {
+  36% {
     left: 120px;
     top: 30px;
   }
-  100% {
-    left: 0;
+  40% {
+    left: 0px;
     top: 60px;
+  }
+  44% {
+    left: 30px;
+    top: 60px;
+  }
+  48% {
+    left: 60px;
+    top: 60px;
+  }
+  52% {
+    left: 90px;
+    top: 60px;
+  }
+  56% {
+    left: 120px;
+    top: 60px;
+  }
+  60% {
+    left: 0px;
+    top: 90px;
+  }
+  64% {
+    left: 30px;
+    top: 90px;
+  }
+  68% {
+    left: 60px;
+    top: 90px;
+  }
+  72% {
+    left: 90px;
+    top: 90px;
+  }
+  76% {
+    left: 120px;
+    top: 90px;
+  }
+  80% {
+    left: 0px;
+    top: 120px;
+  }
+  84% {
+    left: 30px;
+    top: 120px;
+  }
+  88% {
+    left: 60px;
+    top: 120px;
+  }
+  92% {
+    left: 90px;
+    top: 120px;
+  }
+  96% {
+    left: 120px;
+    top: 120px;
   }
 }
 .demo-image-2, .demo-kernel-2 {
@@ -474,12 +534,12 @@ h1, h2 {
 }
 
 .img-mix img {
-  height: 300px;
+  height: 400px;
 }
 
 .img-mix-wrapper {
   position: relative;
-  height: 300px;
+  height: 400px;
   width: auto;
   overflow: hidden;
 }
@@ -634,6 +694,10 @@ input::-webkit-inner-spin-button {
 
   .mySwiper {
     width: 300px;
+  }
+
+  .swiper-button-custom-next, .swiper-button-custom-prev {
+    padding: 0;
   }
 }
 
