@@ -1,0 +1,7 @@
+Flask==2.0.1
+Flask_Bootstrap==3.3.7.1
+Flask_Dropzone==1.6.0
+numpy==1.20.3
+opencv_python==4.5.3.56
+Pillow==8.4.0
+gunicorn==19.9.0

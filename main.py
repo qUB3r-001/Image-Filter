@@ -1,13 +1,14 @@
-from PIL import Image
-import numpy as np
-import cv2
-from flask import Flask, render_template, url_for, request, redirect
-from flask_bootstrap import Bootstrap
-from flask_dropzone import Dropzone
 import base64
 import io
 import time
+import cv2
 from random import randint
+
+import numpy as np
+from PIL import Image
+from flask import Flask, render_template, url_for, request, redirect
+from flask_bootstrap import Bootstrap
+
 from data import DICT
 
 # DEMO_RESULT_ARRAY = [77, 40, 58, 66, 50, 82, 69, 87, 49, 78, 56, 47, 61, 60, 55, 83, 62, 53, 49, 64, 41, 42, 68,
