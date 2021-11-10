@@ -1,11 +1,7 @@
 {% include 'header.html' %}
 
-
 <div class="container-fluid p-0 cover-box d-flex flex-column">
-
 	<h1 class="text-center p-1 mb-0">IMAGE FILTER</h1>
-
-
 	<div class="p-2" style="font-family: 'Yomogi', cursive;">
 		<div class="row mx-auto px-0">
 			<div class="col-lg-3 col-md-12 p-4">
@@ -88,74 +84,14 @@
 			</div>
 		</div>
 	</div>
-	<!--	<div class="demo-div d-flex justify-content-evenly align-items-center">-->
-	<!--		<div class="demo-image">-->
-	<!--			<div class="demo-image-div">-->
-	<!--				{% for i in range(49): %}-->
-	<!--				<div class="img-pixel" style="background-color: hsl(0,0%,{{ demo_img_array[i]}}%);"></div>-->
-	<!--				{% endfor %}-->
-	<!--				<div class="focus-image"></div>-->
-	<!--			</div>-->
-	<!--		</div>-->
-	<!--		<div class="circle-to">⊗</div>-->
-	<!--		<div class="demo-kernel">-->
-	<!--			<div class="demo-kernel-div">-->
-	<!--				{% for i in range(9): %}-->
-	<!--				<div class="kernel-pixel" style="background-color: hsl(0,0%,{{80-i}}%);"></div>-->
-	<!--				{% endfor %}-->
-	<!--			</div>-->
-	<!--		</div>-->
-	<!--		<div class="equal-to">=</div>-->
-	<!--		<div class="demo-result">-->
-	<!--			<div class="demo-result-div">-->
-	<!--				{% for i in range(25): %}-->
-	<!--				<div class="result-pixel" style="background-color: hsl(0,0%,{{demo_result_array[i]}}%);"></div>-->
-	<!--				{% endfor %}-->
-	<!--				<div class="focus-result"></div>-->
-	<!--			</div>-->
-	<!--		</div>-->
-
-	<!--	</div>-->
-	<!--	<p class="text-black-50 text-center p-4 mb-0">Correlation Operation on Image and Kernel</p>-->
-	<!--	<div class="demo-correlation-div d-flex justify-content-evenly align-items-center">-->
-	<!--		<div class="d-flex">-->
-	<!--			<div class="demo-kernel-2">-->
-	<!--				<div class="demo-kernel-div-2">-->
-	<!--					{% for i in range(9): %}-->
-	<!--					<div class="kernel-pixel" style="background-color: hsl(0,0%,{{80-i}}%);"></div>-->
-	<!--					{% endfor %}-->
-	<!--				</div>-->
-	<!--			</div>-->
-	<!--			<div class="demo-image-2">-->
-	<!--				<div class="demo-image-div-2">-->
-	<!--					{% for i in range(9): %}-->
-	<!--					<div class="demo-img-pixel"></div>-->
-	<!--					{% endfor %}-->
-	<!--				</div>-->
-	<!--			</div>-->
-	<!--		</div>-->
-
-
-	<!--		<div class="demo-result-2">-->
-	<!--			<div class="demo-result-div-2">-->
-	<!--				<div class="result-pixel-2" style="background-color: hsl(0,0%,{{demo_result_array[0]}}%);"></div>-->
-	<!--			</div>-->
-	<!--		</div>-->
-
-	<!--	</div>-->
-	<!--	<p class="text-black-50 text-center p-4 mb-0">Subpart of Image Matrix is multiplied elment wise with kernel and the-->
-	<!--		resultant-->
-	<!--		number gives the value to the filtered image pixel</p>-->
-
-	<!--	<div class="top-left-point"></div>-->
-	<!--	<div class="bottom-left-point"></div>-->
-	<!--<a class="text-center p-3 m-0 text-dark slider-btn"></a>-->
 </div>
+
 <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
 	<path d="M0,128L48,160C96,192,192,256,288,250.7C384,245,480,171,576,149.3C672,128,768,160,864,181.3C960,203,1056,213,1152,192C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
 	      fill="#212529"
 	      fill-opacity="1"></path>
 </svg>
+
 <div class="container-fluid row mx-auto p-3 bg-dark text-white hide-after-result">
 	<div class="col-xl-5 col-md-12 p-0">
 		<div class="p-4 d-flex flex-column justify-content-center align-items-center h-100"
@@ -306,6 +242,7 @@
 		</form>
 	</div>
 </div>
+
 {% if filter_img_data %}
 <div class="text-center p-4 bg-dark d-flex justify-content-center">
 	<div class="img-mix bg-white text-dark p-2 rounded">
@@ -325,17 +262,13 @@
 			<button class="btn btn-dark reset-btn" type="submit">Reset</button>
 		</form>
 	</div>
-
-
 </div>
-
 {% endif %}
 <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
 	<path d="M0,128L48,160C96,192,192,256,288,250.7C384,245,480,171,576,149.3C672,128,768,160,864,181.3C960,203,1056,213,1152,192C1248,171,1344,117,1392,90.7L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
 	      fill="#212529"
 	      fill-opacity="1"></path>
 </svg>
-
 
 <div class="container-fluid row mx-auto p-0">
 	<h2 class="text-center pt-5 pb-2 mb-0">Examples</h2>
@@ -383,8 +316,6 @@
 		</div>
 	</div>
 	{% endfor %}
-
 </div>
-
 
 {% include 'footer.html' %}
