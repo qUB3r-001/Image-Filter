@@ -72,15 +72,11 @@ def image_upload():
         resized_width = width - width % 15
         resized_height = height - height % 15
         up_img = up_img.resize((resized_width, resized_height), Image.ANTIALIAS)
-
-        if up_img.mode == 'RGB':
-            red_arr = np.array(up_img)[:, :, 0]
-            grn_arr = np.array(up_img)[:, :, 1]
-            blue_arr = np.array(up_img)[:, :, 2]
-        else:
-            red_arr = np.array(up_img)[:, :]
-            grn_arr = np.array(up_img)[:, :]
-            blue_arr = np.array(up_img)[:, :]
+        up_img = up_img.convert('RGB')
+        # print(up_img.mode)
+        red_arr = np.array(up_img)[:, :, 0]
+        grn_arr = np.array(up_img)[:, :, 1]
+        blue_arr = np.array(up_img)[:, :, 2]
 
         if coef_dict.get('channel-mode-check') != 'on':
             factor = int(filter_matrix[-1])
@@ -89,13 +85,17 @@ def image_upload():
             filter_matrix = filter_matrix.reshape((5, 5))
             filter_matrix = filter_matrix / factor
             # print(filter_matrix)
+
             blur_g = cv2.filter2D(src=grn_arr, kernel=filter_matrix, ddepth=-1)
+            print(grn_arr.shape)
+            print(grn_arr.shape)
             out_green = Image.fromarray(blur_g, 'L')
 
             blur_r = cv2.filter2D(src=red_arr, kernel=filter_matrix, ddepth=-1)
             out_red = Image.fromarray(blur_r, 'L')
 
             blur_b = cv2.filter2D(src=blue_arr, kernel=filter_matrix, ddepth=-1)
+
             out_blue = Image.fromarray(blur_b, 'L')
         else:
             filter_matrix_r = filter_matrix[1:10]

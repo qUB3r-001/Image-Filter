@@ -1,7 +1,28 @@
 {% include 'header.html' %}
 
+<!--<div class="position-fixed bottom-0 end-0 p-2 me-2 mb-4" style="z-index: 999;">-->
+<!--	<a class="btn btn-outline-dark rounded-circle" href="#"><i class="fas fa-chevron-up"></i></a>-->
+<!--</div>-->
+
 <div class="container-fluid p-0 cover-box d-flex flex-column">
 	<h1 class="text-center p-1 mb-0">IMAGE FILTER</h1>
+
+	<div class="mx-auto p-2 d-flex justify-content-around" id="main" style="font-family: 'Yomogi', cursive;">
+		<div class="p-2">
+			<a class="btn btn-outline-danger rounded shadow" href="#main">About</a>
+		</div>
+		<div class="p-2">
+			{% if filter_img_data: %}
+				<a class="btn btn-success rounded shadow" href="#final_result">Result</a>
+			{% else: %}
+				<a class="btn btn-outline-success rounded shadow" href="#demo">Demo</a>
+			{% endif %}
+		</div>
+		<div class="p-2">
+			<a class="btn btn-outline-primary rounded shadow" href="#examples">Examples</a>
+		</div>
+	</div>
+
 	<div class="p-2" style="font-family: 'Yomogi', cursive;">
 		<div class="row mx-auto px-0">
 			<div class="col-lg-3 col-md-12 p-4">
@@ -86,13 +107,13 @@
 	</div>
 </div>
 
-<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1440 320" class="w-100" xmlns="http://www.w3.org/2000/svg">
 	<path d="M0,128L48,160C96,192,192,256,288,250.7C384,245,480,171,576,149.3C672,128,768,160,864,181.3C960,203,1056,213,1152,192C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
 	      fill="#212529"
 	      fill-opacity="1"></path>
 </svg>
 
-<div class="container-fluid row mx-auto p-3 bg-dark text-white hide-after-result">
+<div class="container-fluid row mx-auto p-3 bg-dark text-white hide-after-result" id="demo">
 	<div class="col-xl-5 col-md-12 p-0">
 		<div class="p-4 d-flex flex-column justify-content-center align-items-center h-100"
 		     style="font-family: 'Yomogi', cursive;">
@@ -244,7 +265,7 @@
 </div>
 
 {% if filter_img_data %}
-<div class="text-center p-4 bg-dark d-flex justify-content-center">
+<div class="text-center p-4 bg-dark d-flex justify-content-center" id="final_result">
 	<div class="img-mix bg-white text-dark p-2 rounded">
 		<h4 class="text-center mb-0 p-1" style="font-family: 'Yomogi', cursive;">Filtered Image</h4>
 		<p class="text-center mb-0 p-1" style="font-family: 'Yomogi', cursive;">Drag slider to compare between original
@@ -270,7 +291,7 @@
 	      fill-opacity="1"></path>
 </svg>
 
-<div class="container-fluid row mx-auto p-0">
+<div class="container-fluid row mx-auto p-0" id="examples">
 	<h2 class="text-center pt-5 pb-2 mb-0">Examples</h2>
 	<div class="col-12 py-3">
 		<div class="swiper-container mySwiper mx-auto p-2 border border-2">

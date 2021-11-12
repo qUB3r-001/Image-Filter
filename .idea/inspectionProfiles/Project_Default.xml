@@ -4,12 +4,23 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="3">
+          <list size="7">
             <item index="0" class="java.lang.String" itemvalue="Flask" />
             <item index="1" class="java.lang.String" itemvalue="Jinja2" />
             <item index="2" class="java.lang.String" itemvalue="dominate" />
+            <item index="3" class="java.lang.String" itemvalue="Pillow" />
+            <item index="4" class="java.lang.String" itemvalue="gunicorn" />
+            <item index="5" class="java.lang.String" itemvalue="opencv-python-headless" />
+            <item index="6" class="java.lang.String" itemvalue="skia-python" />
           </list>
         </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="W191" />
+        </list>
       </option>
     </inspection_tool>
   </profile>

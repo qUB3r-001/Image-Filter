@@ -8,7 +8,7 @@
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="SCSS" />
       <option name="immediateSync" value="true" />
-      <option name="name" value="SCSS" />
+      <option name="name" value="SCSS file watcher" />
       <option name="output" value="$FileNameWithoutExtension$.css:$FileNameWithoutExtension$.css.map" />
       <option name="outputFilters">
         <array />

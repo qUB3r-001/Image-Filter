@@ -334,6 +334,16 @@ h1, h2 {
   display: none;
 }
 
+.fa-times-circle {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 10em;
+}
+
 .after-img-load {
   transition: 0.5s;
 }
